@@ -107,6 +107,13 @@ Page titles reveal character-by-character on load:
 
 **Note**: Blog page requires integration with existing blog.js — the typewriter effect should be added to the blog index view title.
 
+**IMPORTANT - Blog Title Styling**: The blog page title MUST match the About and Contact page styling exactly:
+- Use `.page-title` class (not `.blog-title`)
+- Font size: `var(--font-size-hero)` (2.5rem)
+- Text shadow: `0 0 20px var(--color-amber-dim)`
+- Margin bottom: `var(--space-xl)`
+- Import/duplicate the exact CSS from `about-contact.css` into `blog.css`
+
 **Implementation**:
 - JavaScript `typewriter()` function
 - Operates on `.typewriter-title` elements
@@ -150,21 +157,23 @@ Two easter eggs to reinforce the Aperture Science aesthetic:
 - Quotes:
   - "The cake is a lie."
   - "This was a triumph."
-  - "I'm not angry. I'm being so sincere right now."
+  - "I'm not even angry. I'm being so sincere right now."
   - "Speedy thing goes in, speedy thing comes out."
   - "For science. You monster."
 - Styled with italics, dimmed opacity, small font
 - **Quote formatting**: Opening and closing quotation marks MUST be on the same line as the quote text, with attribution on a separate line below
 
-**Easter Egg 2: Companion Cube Hover**
-- Hidden weighted companion cube appears on About page when hovering specific word ("tinkerer")
-- Small pixel art companion cube (32x32) fades in above the trigger word
-- Disappears on mouse out
-- Cube SVG must be recognizable as the Portal Weighted Companion Cube:
-  - Gray cube body with beveled/3D appearance
-  - Pink heart on each visible face
-  - Corner decorations matching the game design
-- Styled with amber tint to match site palette
+**Easter Egg 2: Portal Mode Color Shift**
+- Clicking the word "tinkerer" on the About page triggers a dramatic color transformation
+- All amber colors (#FF9900) transition to Portal blue (#00A1FF)
+- A Portal-inspired animation plays during the transition:
+  - Circular "portal opening" effect expands from the clicked element
+  - Radial gradient wave sweeps across the page
+  - Colors transition smoothly over ~0.5s
+- Click again to toggle back to amber mode
+- CSS custom properties enable the color swap (change `--color-amber` values)
+- Body class `.portal-mode` controls the blue theme state
+- Respects `prefers-reduced-motion` - instant color change without animation if enabled
 
 ### 6. Page Load Animation
 

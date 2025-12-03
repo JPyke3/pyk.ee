@@ -142,41 +142,89 @@
 
 ---
 
-## Phase 7: Fixes and Enhancements
+## Phase 7: Fixes and Enhancements (COMPLETED)
 
 **Purpose**: Address feedback and add blog page typewriter effect
 
 ### Fix 1: GLaDOS Quote Formatting
 
-- [ ] T057 Fix GLaDOS quote in `css/about-contact.css` - move closing quote to same line as quote text
-- [ ] T058 Update `js/about-contact.js` - change quote HTML structure so closing " is inline with quote, attribution on separate line
+- [x] T057 Fix GLaDOS quote in `css/about-contact.css` - move closing quote to same line as quote text
+- [x] T058 Update `js/about-contact.js` - change quote HTML structure so closing " is inline with quote, attribution on separate line
 
 ### Fix 2: About Page Title Prefix
 
-- [ ] T059 Update `about/index.html` - change title from `# whoami` to `# ./whoami`
+- [x] T059 Update `about/index.html` - change title from `# whoami` to `# ./whoami`
 
 ### Fix 3: Companion Cube SVG Redesign
 
-- [ ] T060 Redesign companion cube SVG in `js/about-contact.js` - create recognizable Portal Weighted Companion Cube with:
+- [x] T060 Redesign companion cube SVG in `js/about-contact.js` - create recognizable Portal Weighted Companion Cube with:
   - Gray cube body with 3D/isometric appearance
   - Pink heart on visible face(s)
   - Corner decorations matching game design
   - Amber tint to match site palette
-- [ ] T061 Update `.companion-cube` styles in `css/about-contact.css` - adjust size to 48x48 for visibility
+- [x] T061 Update `.companion-cube` styles in `css/about-contact.css` - adjust size to 48x48 for visibility
 
 ### Enhancement: Blog Page Typewriter Effect
 
-- [ ] T062 Add `.typewriter-title` class to blog title in `blog/index.html`
-- [ ] T063 Update blog title text from `# Blog` to `# ./blog` in `blog/index.html`
-- [ ] T064 Add typewriter CSS styles to `css/blog.css` (copy from about-contact.css)
-- [ ] T065 Add typewriter JavaScript function to `js/blog.js`
-- [ ] T066 Initialize typewriter effect on blog index load in `js/blog.js`
+- [x] T062 Add `.typewriter-title` class to blog title in `blog/index.html`
+- [x] T063 Update blog title text from `# Blog` to `# ./blog` in `blog/index.html`
+- [x] T064 Add typewriter CSS styles to `css/blog.css` (copy from about-contact.css)
+- [x] T065 Add typewriter JavaScript function to `js/blog.js`
+- [x] T066 Initialize typewriter effect on blog index load in `js/blog.js`
 
 ### Final Tasks
 
-- [ ] T067 Test all fixes in browser (About, Contact, Blog pages)
-- [ ] T068 Create atomic commits for fixes per Article XI
-- [ ] T069 Push updated feature branch to remote
+- [x] T067 Test all fixes in browser (About, Contact, Blog pages)
+- [x] T068 Create atomic commits for fixes per Article XI
+- [x] T069 Push updated feature branch to remote
+
+---
+
+## Phase 8: Additional Fixes and Easter Egg Redesign
+
+**Purpose**: Fix GLaDOS quote text, align blog title styling with About/Contact pages, replace companion cube with Portal mode color shift
+
+### Fix 1: GLaDOS Quote Text Correction
+
+- [x] T070 Update `js/about-contact.js` - change quote from "I'm not angry" to "I'm not even angry" (add missing word "even")
+
+### Fix 2: Blog Title Styling Alignment
+
+- [x] T071 Update `blog/index.html` - change title container from `.blog-title` to `.page-title` class
+- [x] T072 Update `css/blog.css` - replace `.blog-title` styles with `.page-title` styles matching `about-contact.css`:
+  - Font size: `var(--font-size-hero)` (2.5rem)
+  - Text shadow: `0 0 20px var(--color-amber-dim)`
+  - Margin bottom: `var(--space-xl)`
+- [x] T073 Add `--font-size-hero: 2.5rem` CSS variable to `css/blog.css` if not present
+
+### Fix 3: Portal Mode Easter Egg (Replace Companion Cube)
+
+- [x] T074 Remove companion cube SVG and hover functionality from `js/about-contact.js`
+- [x] T075 Remove `.companion-cube` and `.easter-egg-trigger:hover` styles from `css/about-contact.css`
+- [x] T076 Add Portal blue color variables to `css/about-contact.css`:
+  - `--color-blue: #00A1FF`
+  - `--color-blue-light: #33B5FF`
+  - `--color-blue-dim: rgba(0, 161, 255, 0.6)`
+- [x] T077 Add `.portal-mode` body class styles that override amber variables with blue values in `css/about-contact.css`
+- [x] T078 Add portal opening animation keyframes to `css/about-contact.css`:
+  - Circular radial gradient expanding from click point
+  - Color transition over 0.5s
+- [x] T079 Add `.portal-overlay` element styles for the animation effect in `css/about-contact.css`
+- [x] T080 Update `.easter-egg-trigger` in `about/index.html` to be clickable (keep on "tinkerer" word)
+- [x] T081 Add `togglePortalMode()` function to `js/about-contact.js`:
+  - Toggle `.portal-mode` class on body
+  - Create and animate portal overlay element
+  - Track state in variable
+- [x] T082 Add click event listener to `.easter-egg-trigger` in `js/about-contact.js`
+- [x] T083 Add reduced motion handling - skip animation, instant color change
+- [x] T084 Update ambient glow `body::after` to use CSS variable for color (so it changes with Portal mode)
+
+### Final Tasks
+
+- [ ] T085 Test Portal mode toggle in browser (click tinkerer, verify color change and animation)
+- [ ] T086 Test Portal mode respects reduced motion preference
+- [ ] T087 Create atomic commits for Phase 8 fixes per Article XI
+- [ ] T088 Push updated feature branch to remote
 
 ---
 
@@ -250,7 +298,7 @@ Task: "Implement copyToClipboard() function in js/about-contact.js"
 
 | Metric | Count |
 |--------|-------|
-| Total Tasks | 69 |
+| Total Tasks | 88 |
 | Phase 1 (Setup) | 3 |
 | Phase 2 (Foundational) | 8 |
 | Phase 3 (US1 - About) | 15 |
@@ -258,11 +306,14 @@ Task: "Implement copyToClipboard() function in js/about-contact.js"
 | Phase 5 (US3 - Navigation) | 7 |
 | Phase 6 (Polish) | 9 |
 | Phase 7 (Fixes & Enhancements) | 13 |
+| Phase 8 (Additional Fixes & Easter Egg) | 19 |
 | Parallelizable Tasks | 12 |
 
 **MVP Scope**: Phases 1-3 (26 tasks) deliver a functional About page.
 
-**Fixes Scope**: Phase 7 (13 tasks) addresses user feedback on GLaDOS quote, title prefix, companion cube, and adds blog typewriter effect.
+**Fixes Scope**: Phase 7 (13 tasks) addresses user feedback on GLaDOS quote formatting, title prefix, companion cube, and adds blog typewriter effect.
+
+**Phase 8 Scope**: 19 tasks to fix GLaDOS quote text ("not even angry"), align blog title styling with About/Contact pages, and replace companion cube easter egg with Portal mode color shift animation.
 
 ---
 
@@ -272,4 +323,5 @@ Task: "Implement copyToClipboard() function in js/about-contact.js"
 - [Story] label maps task to specific user story for traceability
 - Commit after each task or logical group per Article XI
 - Shared CSS/JS requires coordination if working in parallel
-- Easter eggs (GLaDOS quotes, companion cube) are in User Story 1 since About page hosts them
+- Easter eggs (GLaDOS quotes, Portal mode color shift) are in User Story 1 since About page hosts them
+- Portal mode easter egg: clicking "tinkerer" toggles all colors from amber to Portal blue with animation
