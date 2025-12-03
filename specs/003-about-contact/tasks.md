@@ -221,10 +221,10 @@
 
 ### Final Tasks
 
-- [ ] T085 Test Portal mode toggle in browser (click tinkerer, verify color change and animation)
-- [ ] T086 Test Portal mode respects reduced motion preference
-- [ ] T087 Create atomic commits for Phase 8 fixes per Article XI
-- [ ] T088 Push updated feature branch to remote
+- [x] T085 Test Portal mode toggle in browser (click tinkerer, verify color change and animation)
+- [x] T086 Test Portal mode respects reduced motion preference
+- [x] T087 Create atomic commits for Phase 8 fixes per Article XI
+- [x] T088 Push updated feature branch to remote
 
 ---
 
