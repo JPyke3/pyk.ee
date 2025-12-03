@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pykee's Blog - Thoughts on Linux, open source, and web development.">
+  <meta name="theme-color" content="#000000">
+  <title>Blog - pyk.ee</title>
+  <link rel="stylesheet" href="../css/homepage.css">
+  <link rel="stylesheet" href="../css/blog.css">
+  <link rel="stylesheet" href="../css/vendor/hljs-terminal.css">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+</head>
+<body>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="main-nav" role="navigation" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/projects" class="nav-link">Projects</a></li>
+        <li><a href="/blog" class="nav-link" aria-current="page">Blog</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="main-content">
+    <noscript>
+      <div class="noscript-message">
+        <h1># JavaScript Required</h1>
+        <p>This blog requires JavaScript to render Markdown content.</p>
+        <p>Please enable JavaScript or use a browser that supports it.</p>
+        <p><a href="/">← Back to homepage</a></p>
+      </div>
+    </noscript>
+
+    <!-- Blog Index View -->
+    <section id="blog-index" class="blog-view">
+      <div class="container">
+        <h1 class="blog-title"># Blog</h1>
+        <p class="blog-intro">Thoughts on Linux, open source, and web development.</p>
+        <div id="post-list" class="post-list">
+          <!-- Posts rendered here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Single Post View (hidden by default) -->
+    <article id="blog-post" class="blog-view hidden">
+      <div class="container">
+        <nav class="post-nav">
+          <a href="/blog" class="back-link">← Back to blog</a>
+        </nav>
+        <header class="post-header">
+          <h1 id="post-title" class="post-title"></h1>
+          <div class="post-meta">
+            <time id="post-date" class="post-date"></time>
+            <div id="post-tags" class="post-tags"></div>
+          </div>
+        </header>
+        <div id="post-content" class="post-content">
+          <!-- Rendered markdown content goes here -->
+        </div>
+      </div>
+    </article>
+
+    <!-- Loading State -->
+    <div id="blog-loading" class="blog-view hidden">
+      <div class="container loading-container">
+        <div class="loading-indicator">
+          <span class="loading-text">Loading</span>
+          <span class="loading-cursor">█</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div id="blog-error" class="blog-view hidden">
+      <div class="container error-container">
+        <h1 class="error-title"># Error</h1>
+        <p id="error-message" class="error-message"></p>
+        <p><a href="/blog" class="back-link">← Back to blog</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="scroll-indicator" aria-hidden="true">
+      <span class="scroll-text">back to top</span>
+      <span class="scroll-chevron">▲</span>
+    </div>
+  </footer>
+
+  <script src="../js/vendor/marked.min.js"></script>
+  <script src="../js/vendor/highlight.min.js"></script>
+  <script src="../js/blog.js"></script>
+</body>
+</html>
