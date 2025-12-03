@@ -27,7 +27,7 @@ Static web project - files at repository root:
 
 **Purpose**: Directory structure for GitHub Actions
 
-- [ ] T001 Create `.github/workflows/` directory for CI workflow
+- [x] T001 Create `.github/workflows/` directory for CI workflow
 
 ---
 
@@ -37,8 +37,8 @@ Static web project - files at repository root:
 
 **⚠️ CRITICAL**: CI workflow cannot run without config files
 
-- [ ] T002 [P] Create HTML validator config at `.html-validate.json` with `html-validate:recommended` preset
-- [ ] T003 [P] Create CSS linter config at `.stylelintrc.json` with `stylelint-config-standard` preset and exclusion patterns
+- [x] T002 [P] Create HTML validator config at `.html-validate.json` with `html-validate:recommended` preset
+- [x] T003 [P] Create CSS linter config at `.stylelintrc.json` with `stylelint-config-standard` preset and exclusion patterns
 
 **Checkpoint**: Config files ready - CI workflow can now be created
 
@@ -52,11 +52,11 @@ Static web project - files at repository root:
 
 ### Implementation for User Story 1
 
-- [ ] T004 [US1] Create GitHub Actions workflow at `.github/workflows/validate.yml` with main branch trigger
-- [ ] T005 [US1] Add checkout and Node.js setup steps to `.github/workflows/validate.yml`
-- [ ] T006 [US1] Add npm install step for html-validate and stylelint to `.github/workflows/validate.yml`
-- [ ] T007 [US1] Add HTML validation step to `.github/workflows/validate.yml` running html-validate on `**/*.html`
-- [ ] T008 [US1] Add CSS validation step to `.github/workflows/validate.yml` running stylelint on `css/**/*.css`
+- [x] T004 [US1] Create GitHub Actions workflow at `.github/workflows/validate.yml` with main branch trigger
+- [x] T005 [US1] Add checkout and Node.js setup steps to `.github/workflows/validate.yml`
+- [x] T006 [US1] Add npm install step for html-validate and stylelint to `.github/workflows/validate.yml`
+- [x] T007 [US1] Add HTML validation step to `.github/workflows/validate.yml` running html-validate on `**/*.html`
+- [x] T008 [US1] Add CSS validation step to `.github/workflows/validate.yml` running stylelint on `css/**/*.css`
 
 **Checkpoint**: User Story 1 complete - CI workflow validates HTML/CSS on push to main
 
@@ -70,30 +70,30 @@ Static web project - files at repository root:
 
 ### CSS for User Story 2
 
-- [ ] T009 [P] [US2] Create base styles (font-face, CSS variables, reset) in `css/404.css`
-- [ ] T010 [P] [US2] Add CRT scanline overlay effect to `css/404.css`
-- [ ] T011 [P] [US2] Add ambient glow effect to `css/404.css`
-- [ ] T012 [P] [US2] Add `.error-container` centered layout styles to `css/404.css`
-- [ ] T013 [P] [US2] Add `.error-code` large "404" text styles with glitch animation to `css/404.css`
-- [ ] T014 [P] [US2] Add `@keyframes glitch` animation for position distortion to `css/404.css`
-- [ ] T015 [P] [US2] Add `@keyframes colorShift` animation for red flash to `css/404.css`
-- [ ] T016 [P] [US2] Add `@keyframes flicker` animation for subtle opacity to `css/404.css`
-- [ ] T017 [P] [US2] Add `.error-title` styles for "FILE NOT FOUND" heading to `css/404.css`
-- [ ] T018 [P] [US2] Add `.glados-quote` and `.glados-attribution` styles to `css/404.css`
-- [ ] T019 [P] [US2] Add `.home-link` terminal-styled link styles to `css/404.css`
-- [ ] T020 [P] [US2] Add reduced motion media query to `css/404.css`
-- [ ] T021 [P] [US2] Add responsive styles for mobile viewport to `css/404.css`
+- [x] T009 [P] [US2] Create base styles (font-face, CSS variables, reset) in `css/404.css`
+- [x] T010 [P] [US2] Add CRT scanline overlay effect to `css/404.css`
+- [x] T011 [P] [US2] Add ambient glow effect to `css/404.css`
+- [x] T012 [P] [US2] Add `.error-container` centered layout styles to `css/404.css`
+- [x] T013 [P] [US2] Add `.error-code` large "404" text styles with glitch animation to `css/404.css`
+- [x] T014 [P] [US2] Add `@keyframes glitch` animation for position distortion to `css/404.css`
+- [x] T015 [P] [US2] Add `@keyframes colorShift` animation for red flash to `css/404.css`
+- [x] T016 [P] [US2] Add `@keyframes flicker` animation for subtle opacity to `css/404.css`
+- [x] T017 [P] [US2] Add `.error-title` styles for "FILE NOT FOUND" heading to `css/404.css`
+- [x] T018 [P] [US2] Add `.glados-quote` and `.glados-attribution` styles to `css/404.css`
+- [x] T019 [P] [US2] Add `.home-link` terminal-styled link styles to `css/404.css`
+- [x] T020 [P] [US2] Add reduced motion media query to `css/404.css`
+- [x] T021 [P] [US2] Add responsive styles for mobile viewport to `css/404.css`
 
 ### HTML for User Story 2
 
-- [ ] T022 [US2] Create `404.html` with doctype, head, and meta tags (charset, viewport, description)
-- [ ] T023 [US2] Add CSS link and favicon link to `404.html` head
-- [ ] T024 [US2] Add main content structure with error-container to `404.html`
-- [ ] T025 [US2] Add large "404" error code element to `404.html`
-- [ ] T026 [US2] Add "FILE NOT FOUND" heading to `404.html`
-- [ ] T027 [US2] Add GLaDOS quote blockquote with fallback text to `404.html`
-- [ ] T028 [US2] Add homepage link with terminal styling to `404.html`
-- [ ] T029 [US2] Add inline script with GLADOS_QUOTES array and random selection to `404.html`
+- [x] T022 [US2] Create `404.html` with doctype, head, and meta tags (charset, viewport, description)
+- [x] T023 [US2] Add CSS link and favicon link to `404.html` head
+- [x] T024 [US2] Add main content structure with error-container to `404.html`
+- [x] T025 [US2] Add large "404" error code element to `404.html`
+- [x] T026 [US2] Add "FILE NOT FOUND" heading to `404.html`
+- [x] T027 [US2] Add GLaDOS quote blockquote with fallback text to `404.html`
+- [x] T028 [US2] Add homepage link with terminal styling to `404.html`
+- [x] T029 [US2] Add inline script with GLADOS_QUOTES array and random selection to `404.html`
 
 **Checkpoint**: User Story 2 complete - 404 page displays with styling and GLaDOS quotes
 
@@ -103,7 +103,7 @@ Static web project - files at repository root:
 
 **Purpose**: Final validation and accessibility
 
-- [ ] T030 [P] Verify 404 page works with JavaScript disabled (fallback quote visible)
+- [x] T030 [P] Verify 404 page works with JavaScript disabled (fallback quote visible)
 - [ ] T031 [P] Test 404 page glitch animation in multiple browsers
 - [ ] T032 [P] Test 404 page responsive layout on mobile viewport
 - [ ] T033 Run Lighthouse accessibility audit on `404.html` - target score ≥ 90
