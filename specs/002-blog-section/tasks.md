@@ -147,7 +147,7 @@
 - [x] T042 [US4] Set `aria-current="page"` on Blog nav link in `blog.html`
 - [x] T043 [US4] Add CRT scanlines background effect to `css/blog.css`
 - [x] T044 [US4] Ensure CSS custom properties match homepage palette in `css/blog.css`
-- [ ] T045 [US4] Test navigation from homepage to blog and back
+- [x] T045 [US4] Test navigation from homepage to blog and back
 
 **Checkpoint**: Blog feels like part of unified pyk.ee site.
 
@@ -161,17 +161,17 @@
 - [x] T047 Adjust post list layout for mobile in `css/blog.css`
 - [x] T048 Adjust post content typography for mobile in `css/blog.css`
 - [x] T049 Ensure 44x44px minimum touch targets for mobile in `css/blog.css`
-- [ ] T050 Test horizontal scroll on 320px viewport
+- [x] T050 Test horizontal scroll on 320px viewport
 - [x] T051 [P] Add proper heading hierarchy for screen readers in `blog.html`
 - [x] T052 [P] Add skip-to-content link in `blog.html`
 - [x] T053 Add `prefers-reduced-motion` support in `css/blog.css`
-- [ ] T054 [P] Test in Chrome browser
-- [ ] T055 [P] Test in Firefox browser
-- [ ] T056 [P] Test in Safari browser
-- [ ] T057 [P] Test in Edge browser
-- [ ] T058 Test page opens correctly from `file://` protocol
+- [x] T054 [P] Test in Chrome browser
+- [x] T055 [P] Test in Firefox browser
+- [x] T056 [P] Test in Safari browser
+- [x] T057 [P] Test in Edge browser
+- [x] T058 Test page opens correctly from `file://` protocol (shows helpful server instructions)
 - [x] T059 Verify page weight under 500KB (excluding post content)
-- [ ] T060 Final code review for Article IV (nesting depth max 3)
+- [x] T060 Final code review for Article IV (nesting depth max 3)
 
 ---
 
