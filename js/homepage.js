@@ -250,7 +250,7 @@
   function init() {
     checkReducedMotion();
 
-    state.logo = document.querySelector('.logo');
+    state.logo = document.querySelector('.mascot');
 
     setupCanvas();
     setupEventListeners();
