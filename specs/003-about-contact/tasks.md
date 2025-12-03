@@ -259,11 +259,11 @@
 
 ### Final Tasks
 
-- [ ] T099 Test blog title animation works correctly
-- [ ] T100 Test quote footer appears on all pages (Homepage, About, Contact, Blog)
-- [ ] T101 Verify quotes rotate randomly and display correctly on each page
-- [ ] T102 Create atomic commits for Phase 9 fixes per Article XI
-- [ ] T103 Push updated feature branch to remote
+- [x] T099 Test blog title animation works correctly
+- [x] T100 Test quote footer appears on all pages (Homepage, About, Contact, Blog)
+- [x] T101 Verify quotes rotate randomly and display correctly on each page
+- [x] T102 Create atomic commits for Phase 9 fixes per Article XI
+- [x] T103 Push updated feature branch to remote
 
 ---
 
