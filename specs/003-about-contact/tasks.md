@@ -293,8 +293,8 @@ On mobile viewports, the blog page title appears at a different size than About 
 ### Final Tasks
 
 - [x] T113 Test all fixes across desktop and mobile viewports
-- [ ] T114 Create atomic commits for Phase 10 fixes per Article XI
-- [ ] T115 Push updated feature branch to remote
+- [x] T114 Create atomic commits for Phase 10 fixes per Article XI
+- [x] T115 Push updated feature branch to remote
 
 ---
 
