@@ -130,12 +130,13 @@ A visitor gets a sense of who Pykee is as a person—not just skills, but intere
 #### Logo & Branding
 - **FR-010**: Site MUST display a pixel art pike fish mascot as the primary logo [Article VI]
 - **FR-010a**: Pike mascot MUST be cute and approachable — friendly mascot vibes similar to Claude Code mascot
-- **FR-010b**: Pike mascot MUST be sized for 32x32 or 64x64 pixel grid with clear personality
+- **FR-010b**: Pike mascot MUST be sized for 24x16 pixel grid with flat color and clear personality
 - **FR-010c**: Pike mascot MUST work as profile picture and favicon
-- **FR-011**: Logo MUST track/follow user's mouse cursor as an easter egg with noticeable movement
+- **FR-011**: Logo MUST float toward user's mouse cursor as an easter egg (whole-element CSS transform, not eye-only)
 - **FR-012**: Logo tracking MUST be smooth (no jitter or lag perceptible at 60fps)
 - **FR-013**: Logo MUST display static fallback when JavaScript is disabled
 - **FR-014**: Logo MUST display static state on touch devices (no cursor to track)
+- **FR-014a**: Logo MUST respond to click/tap with a wiggle animation (brief bounce/shake)
 - **FR-015**: Primary brand name displayed MUST be "Pykee" (not "Jacob Pyke")
 
 #### Background & Atmosphere
@@ -173,6 +174,12 @@ A visitor gets a sense of who Pykee is as a person—not just skills, but intere
 - **FR-073**: Pixel art decorative elements LIMITED to one per page [Article VI]
 - **FR-074**: Colour palette MUST use Portal/Aperture Science terminal aesthetic: amber/orange (#FF9900-#FFB000) text/accents on black (#000000) background
 - **FR-075**: Primary font MUST be JetBrains Mono or Fira Code (monospace); fallback to system monospace
+
+#### Scroll Affordance
+- **FR-085**: Hero section MUST include a "scroll down" indicator at bottom (text + animated chevron)
+- **FR-086**: Footer MUST include a "back to top" indicator (text + chevron)
+- **FR-087**: Both scroll indicators MUST be clickable with smooth scroll behavior
+- **FR-088**: Scroll indicators MUST respect `prefers-reduced-motion` (instant scroll if reduced motion)
 
 #### Responsiveness
 - **FR-080**: Page MUST be fully functional on mobile devices [Article VIII]
@@ -254,19 +261,26 @@ Future pages will reuse `styles.css` and may extend `main.js` or add their own s
 - Q: What is the GitHub profile URL? → A: https://github.com/JPyke3
 - Q: What colour palette should be used? → A: Portal/Aperture Science terminal aesthetic — amber/orange (#FF9900-#FFB000) on black, CRT scanlines. Easter egg for Portal fans.
 - Q: What primary font should be used? → A: JetBrains Mono / Fira Code (monospace, developer-favourite)
-- Q: What should the logo be? → A: Pixel art pike fish mascot (pun on "Pykee"), cute and approachable, 32x32 or 64x64 grid
+- Q: What should the logo be? → A: Pixel art pike fish mascot (pun on "Pykee"), cute and approachable, 24x16 pixel grid, flat color
 - Q: What is the primary brand name? → A: "Pykee" (not "Jacob Pyke")
+- Q: What resolution for pixel art mascot? → A: 24x16 (wider aspect ratio, more fish-like shape)
+- Q: Should fish have click interaction? → A: Yes, click-to-wiggle (brief bounce/shake animation)
+- Q: Should page have scroll indicators? → A: Yes, both hero "scroll down" + footer "back to top"
+- Q: What logo tracking style? → A: Whole-element float (entire fish moves toward cursor via CSS transform)
 
 ## Design Decisions (Resolved)
 
 | Question | Decision | Rationale |
 |----------|----------|-----------|
-| Logo style | Pixel art pike fish mascot | Pun on "Pykee", memorable, cute personality, works as favicon/avatar |
-| Logo size | 32x32 or 64x64 pixel grid | Clear at small sizes, retains detail, pixel art aesthetic |
+| Logo style | Pixel art pike fish mascot (flat color) | Pun on "Pykee", memorable, cute personality, works as favicon/avatar |
+| Logo size | 24x16 pixel grid | Wider aspect ratio suits fish shape, minimal like Claude Code mascot |
+| Logo tracking style | Whole-element float via CSS transform | More noticeable, playful movement; entire fish drifts toward cursor |
 | Logo tracking intensity | Noticeable | Visitors should discover the effect within seconds as an easter egg |
+| Logo click interaction | Wiggle/bounce animation | Playful feedback reinforces interactive easter egg nature |
 | Primary brand name | "Pykee" | Personal brand, memorable, matches domain pyk.ee |
 | Background style | Terminal scanlines | CRT aesthetic aligns with retro-tech workshop identity |
 | Ambient animation | Minimal motion | Adds life without distraction; respects reduced-motion preference |
+| Scroll indicators | Dual: hero "scroll down" + footer "back to top" | Guides users to below-fold content; easy return navigation |
 | Hero descriptor | "I build things for the web and tinker with Linux." | Casual tone, covers both web dev and Linux identity |
 | Colour palette | Portal/Aperture Science terminal — amber (#FF9900-#FFB000) on black (#000000) | Distinctive, nostalgic, easter egg for Portal fans, avoids all forbidden clichés |
 | Font family | JetBrains Mono / Fira Code (monospace) | Reinforces terminal aesthetic, readable, developer-favourite, pairs with Portal look |

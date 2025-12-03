@@ -1,0 +1,19 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.tmp
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Environment
+.env*
+
+# Build artifacts (if any future build step)
+dist/
+build/

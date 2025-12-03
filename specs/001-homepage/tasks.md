@@ -92,13 +92,13 @@
 - [x] T016 [US2] Add CRT scanlines effect using `body::before` pseudo-element in `css/homepage.css`
 - [x] T017 [US2] Add ambient glow effect using radial gradient in `css/homepage.css`
 - [x] T018 [US2] Create `js/homepage.js` with DOMContentLoaded wrapper
-- [x] T019 [US2] Design ichthys-style pike mascot (oval body, triangle tail, cute/approachable)
-- [x] T020 [US2] Inline SVG mascot in `index.html` with eye pupil tracking
+- [x] T019 [US2] Design pixel art pike mascot (16x16, flat color, cute/approachable) — NEEDS REVISION (see T066)
+- [x] T020 [US2] Inline SVG mascot in `index.html` — NEEDS REVISION (see T067)
 - [x] T021 [US2] Add `aria-label` to mascot element for accessibility in `index.html`
 - [x] T022 [US2] Implement mouse position tracking (mousemove listener) in `js/homepage.js`
 - [x] T023 [US2] Implement requestAnimationFrame render loop in `js/homepage.js`
-- [x] T024 [US2] Implement eye pupil tracking based on cursor position in `js/homepage.js`
-- [x] T064 [US2] Add click-to-wink interaction on fish (eyelid animation) in `js/homepage.js`
+- [x] T024 [US2] Implement whole-mascot transform based on cursor position — NEEDS REVISION (see T070)
+- [x] T064 [US2] Add click interaction on fish — NEEDS REVISION (wiggle instead of wink, see T070)
 - [x] T025 [US2] Add `prefers-reduced-motion` check to disable animations in `js/homepage.js`
 - [x] T026 [P] [US2] Add canvas element for particle background in `index.html`
 - [x] T027 [US2] Implement particle system (30-50 amber particles, slow drift) in `js/homepage.js`
@@ -203,9 +203,37 @@
 - [ ] T059 Test in Chrome, Firefox, Safari, Edge browsers
 - [ ] T060 Verify page opens correctly from `file://` protocol
 - [x] T061 Add scroll indicator to footer ("back to top" with smooth scroll on click)
-- [x] T062 Generate favicon from pike mascot (ichthys-style, transparent background)
+- [x] T062 Generate favicon from pike mascot — NEEDS REVISION (pixel art style, see T069)
 - [x] T063 Add favicon link tags to `index.html`
-- [x] T065 Move scroll indicator from hero to footer position
+- [x] T065 Move scroll indicator from hero to footer position — DEPRECATED (now need BOTH indicators, see T071)
+
+---
+
+## Phase 10: Mascot & Interaction Redesign
+
+**Purpose**: Redesign mascot to pixel art style, restore whole-element cursor tracking, add dual scroll indicators
+
+**Depends on**: All previous phases complete
+
+### Mascot Redesign
+
+- [x] T066 [US2] Design new pixel art pike mascot (24x16, flat amber color, cute/minimal)
+- [x] T067 [US2] Replace inline SVG in `index.html` with pixel art mascot
+- [x] T068 [US2] Update `images/pike-mascot.svg` with pixel art design
+- [x] T069 [US2] Update `favicon.svg` with pixel art design
+
+### Interaction Redesign
+
+- [x] T070 [US2] Refactor `js/homepage.js` to whole-element float tracking (CSS transform, 8px offset, angle-based)
+- [x] T074 [US2] Add click-to-wiggle/bounce interaction in `js/homepage.js`
+
+### Scroll Indicators
+
+- [x] T071 [US2] Add scroll-down indicator to hero section in `index.html` ("scroll" + ▼)
+- [x] T072 [US2] Add scroll-down click handler in `js/homepage.js` (scroll to `.what-i-do`)
+- [x] T073 [US2] Style scroll-down indicator positioning in `css/homepage.css`
+
+**Checkpoint**: Pixel art mascot floats toward cursor. Both scroll indicators work (hero down, footer up).
 
 ---
 
@@ -235,6 +263,8 @@ Phase 2 (Foundational) — BLOCKS all user stories
 └───────────────────────────────────────────────────┘
     ↓
 Phase 9 (Polish) — after all stories complete
+    ↓
+Phase 10 (Mascot Redesign) — pixel art, float tracking, dual scroll
 ```
 
 ### User Story Dependencies
@@ -323,8 +353,9 @@ Task: "Implement mouse position tracking in js/homepage.js"
 - Each user story should be independently completable and testable
 - Commit after each logical task group (per Article XI)
 - Stop at any checkpoint to validate story independently
-- Invoke `frontend-design` skill for tasks T019 (pike mascot), T037 (CTA styling)
+- Invoke `frontend-design` skill for tasks T066 (pixel art pike mascot), T037 (CTA styling)
 - All tasks assume manual browser testing (no automated test framework)
+- **NEEDS REVISION** tasks require updates in Phase 10 before completion
 
 ---
 
@@ -332,15 +363,16 @@ Task: "Implement mouse position tracking in js/homepage.js"
 
 | Metric | Value |
 |--------|-------|
-| **Total Tasks** | 65 |
+| **Total Tasks** | 74 |
 | **Setup Phase** | 4 tasks |
 | **Foundational Phase** | 5 tasks |
 | **US1 (First Impression)** | 6 tasks |
-| **US2 (Visual Experience)** | 14 tasks (includes eye tracking, wink animation) |
+| **US2 (Visual Experience)** | 14 tasks (some marked NEEDS REVISION) |
 | **US3 (Navigation)** | 6 tasks |
 | **US4 (Contact CTA)** | 7 tasks |
 | **US5 (Blog CTA)** | 3 tasks |
 | **US6 (Personality)** | 5 tasks |
 | **Polish Phase** | 15 tasks (includes scroll indicator, favicon, browser tests) |
+| **Mascot Redesign Phase** | 9 tasks (pixel art, float tracking, dual scroll indicators) |
 | **Parallel Opportunities** | 8 tasks marked [P] |
 | **MVP Scope** | Phase 1 + 2 + US1 (15 tasks) |

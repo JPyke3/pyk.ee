@@ -1,21 +1,52 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <!-- Pykee Pike Favicon - Ichthys-style, transparent background -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 16" width="32" height="21">
+  <!-- Pykee Pike Favicon - 24x16 Pixel Art, Flat Amber -->
 
-  <!-- Tail fin (triangle) -->
-  <polygon fill="#E68A00" points="0,16 6,10 6,22"/>
+  <!-- Tail fin -->
+  <rect fill="#FF9900" x="0" y="6" width="1" height="1"/>
+  <rect fill="#FF9900" x="0" y="9" width="1" height="1"/>
+  <rect fill="#FF9900" x="1" y="5" width="1" height="2"/>
+  <rect fill="#FF9900" x="1" y="9" width="1" height="2"/>
+  <rect fill="#FF9900" x="2" y="4" width="1" height="3"/>
+  <rect fill="#FF9900" x="2" y="9" width="1" height="3"/>
+  <rect fill="#FF9900" x="3" y="5" width="1" height="6"/>
 
-  <!-- Body (oval) -->
-  <ellipse fill="#FF9900" cx="16" cy="16" rx="12" ry="8"/>
+  <!-- Body -->
+  <rect fill="#FF9900" x="4" y="4" width="1" height="8"/>
+  <rect fill="#FF9900" x="5" y="3" width="1" height="10"/>
+  <rect fill="#FF9900" x="6" y="3" width="1" height="10"/>
+  <rect fill="#FF9900" x="7" y="2" width="1" height="12"/>
+  <rect fill="#FF9900" x="8" y="2" width="1" height="12"/>
+  <rect fill="#FF9900" x="9" y="2" width="1" height="12"/>
+  <rect fill="#FF9900" x="10" y="2" width="1" height="12"/>
+  <rect fill="#FF9900" x="11" y="2" width="1" height="12"/>
+  <rect fill="#FF9900" x="12" y="2" width="1" height="12"/>
+  <rect fill="#FF9900" x="13" y="3" width="1" height="10"/>
+  <rect fill="#FF9900" x="14" y="3" width="1" height="10"/>
+  <rect fill="#FF9900" x="15" y="4" width="1" height="8"/>
+  <rect fill="#FF9900" x="16" y="4" width="1" height="8"/>
+  <rect fill="#FF9900" x="17" y="5" width="1" height="6"/>
+  <rect fill="#FF9900" x="18" y="5" width="1" height="6"/>
 
-  <!-- Body highlight -->
-  <ellipse fill="#FFB000" cx="14" cy="12" rx="6" ry="2"/>
+  <!-- Snout -->
+  <rect fill="#FF9900" x="19" y="6" width="1" height="4"/>
+  <rect fill="#FF9900" x="20" y="6" width="1" height="4"/>
+  <rect fill="#FF9900" x="21" y="7" width="1" height="2"/>
+  <rect fill="#FF9900" x="22" y="7" width="1" height="2"/>
+  <rect fill="#FF9900" x="23" y="7" width="1" height="2"/>
 
-  <!-- Eye white -->
-  <circle fill="#FFFFFF" cx="22" cy="14" r="3"/>
+  <!-- Dorsal fin -->
+  <rect fill="#FF9900" x="9" y="1" width="1" height="1"/>
+  <rect fill="#FF9900" x="10" y="0" width="1" height="2"/>
+  <rect fill="#FF9900" x="11" y="0" width="1" height="2"/>
+  <rect fill="#FF9900" x="12" y="1" width="1" height="1"/>
 
-  <!-- Eye pupil -->
-  <circle id="favicon-pupil" fill="#000000" cx="23" cy="14" r="1.5"/>
+  <!-- Bottom fin -->
+  <rect fill="#FF9900" x="10" y="14" width="1" height="1"/>
+  <rect fill="#FF9900" x="11" y="14" width="1" height="2"/>
+  <rect fill="#FF9900" x="12" y="14" width="1" height="2"/>
+  <rect fill="#FF9900" x="13" y="14" width="1" height="1"/>
 
-  <!-- Top fin -->
-  <polygon fill="#E68A00" points="14,8 18,8 16,11"/>
+  <!-- Eye -->
+  <rect fill="#FFFFFF" x="16" y="5" width="2" height="2"/>
+  <rect fill="#000000" x="17" y="5" width="1" height="1"/>
 </svg>

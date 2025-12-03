@@ -1,48 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 32" width="128" height="64">
-  <!-- Pykee Pike Mascot - Ichthys-style friendly fish -->
-  <!-- Simple oval body with triangular tail, transparent background -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 16" width="96" height="64">
+  <!-- Pykee Pike Mascot - 24x16 Pixel Art, Flat Amber -->
+  <!-- Chunky, friendly pike fish - terminal mascot vibes -->
 
-  <defs>
-    <style>
-      .fish-body { fill: #FF9900; }
-      .fish-highlight { fill: #FFB000; }
-      .fish-shadow { fill: #CC7A00; }
-      .eye-white { fill: #FFFFFF; }
-      .eye-pupil { fill: #000000; }
-      .fin { fill: #E68A00; }
-    </style>
-  </defs>
+  <!-- Each rect is 1x1 pixel unit -->
 
-  <!-- Tail fin (triangle) -->
-  <polygon class="fin" points="0,16 12,6 12,26"/>
+  <!-- Tail fin (left side) -->
+  <rect fill="#FF9900" x="0" y="6" width="1" height="1"/>
+  <rect fill="#FF9900" x="0" y="9" width="1" height="1"/>
+  <rect fill="#FF9900" x="1" y="5" width="1" height="2"/>
+  <rect fill="#FF9900" x="1" y="9" width="1" height="2"/>
+  <rect fill="#FF9900" x="2" y="4" width="1" height="3"/>
+  <rect fill="#FF9900" x="2" y="9" width="1" height="3"/>
+  <rect fill="#FF9900" x="3" y="5" width="1" height="6"/>
 
-  <!-- Body (oval/ellipse) -->
-  <ellipse class="fish-body" cx="32" cy="16" rx="22" ry="12"/>
+  <!-- Body (main chunky mass) -->
+  <rect fill="#FF9900" x="4" y="4" width="1" height="8"/>
+  <rect fill="#FF9900" x="5" y="3" width="1" height="10"/>
+  <rect fill="#FF9900" x="6" y="3" width="1" height="10"/>
+  <rect fill="#FF9900" x="7" y="2" width="1" height="12"/>
+  <rect fill="#FF9900" x="8" y="2" width="1" height="12"/>
+  <rect fill="#FF9900" x="9" y="2" width="1" height="12"/>
+  <rect fill="#FF9900" x="10" y="2" width="1" height="12"/>
+  <rect fill="#FF9900" x="11" y="2" width="1" height="12"/>
+  <rect fill="#FF9900" x="12" y="2" width="1" height="12"/>
+  <rect fill="#FF9900" x="13" y="3" width="1" height="10"/>
+  <rect fill="#FF9900" x="14" y="3" width="1" height="10"/>
+  <rect fill="#FF9900" x="15" y="4" width="1" height="8"/>
+  <rect fill="#FF9900" x="16" y="4" width="1" height="8"/>
+  <rect fill="#FF9900" x="17" y="5" width="1" height="6"/>
+  <rect fill="#FF9900" x="18" y="5" width="1" height="6"/>
 
-  <!-- Body highlight (top curve) -->
-  <ellipse class="fish-highlight" cx="30" cy="10" rx="14" ry="4"/>
-
-  <!-- Body shadow (bottom) -->
-  <ellipse class="fish-shadow" cx="34" cy="22" rx="12" ry="3"/>
+  <!-- Snout (pointed, pike-like) -->
+  <rect fill="#FF9900" x="19" y="6" width="1" height="4"/>
+  <rect fill="#FF9900" x="20" y="6" width="1" height="4"/>
+  <rect fill="#FF9900" x="21" y="7" width="1" height="2"/>
+  <rect fill="#FF9900" x="22" y="7" width="1" height="2"/>
+  <rect fill="#FF9900" x="23" y="7" width="1" height="2"/>
 
   <!-- Dorsal fin (top) -->
-  <polygon class="fin" points="28,4 36,4 32,8"/>
+  <rect fill="#FF9900" x="9" y="1" width="1" height="1"/>
+  <rect fill="#FF9900" x="10" y="0" width="1" height="2"/>
+  <rect fill="#FF9900" x="11" y="0" width="1" height="2"/>
+  <rect fill="#FF9900" x="12" y="1" width="1" height="1"/>
 
   <!-- Bottom fin -->
-  <polygon class="fin" points="30,28 38,28 34,24"/>
+  <rect fill="#FF9900" x="10" y="14" width="1" height="1"/>
+  <rect fill="#FF9900" x="11" y="14" width="1" height="2"/>
+  <rect fill="#FF9900" x="12" y="14" width="1" height="2"/>
+  <rect fill="#FF9900" x="13" y="14" width="1" height="1"/>
 
-  <!-- Eye white -->
-  <circle class="eye-white" cx="44" cy="14" r="5"/>
-
-  <!-- Eye pupil -->
-  <circle id="pupil" class="eye-pupil" cx="45" cy="14" r="2.5"/>
-
-  <!-- Eye shine -->
-  <circle fill="#FFFFFF" cx="43" cy="12" r="1.5"/>
-
-  <!-- Mouth (simple smile curve) -->
-  <path d="M 50 18 Q 54 20 52 22" stroke="#CC7A00" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-
-  <!-- Gill line -->
-  <path d="M 24 12 Q 22 16 24 20" stroke="#CC7A00" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Eye (simple white square with black pupil) -->
+  <rect fill="#FFFFFF" x="16" y="5" width="2" height="2"/>
+  <rect fill="#000000" x="17" y="5" width="1" height="1"/>
 </svg>

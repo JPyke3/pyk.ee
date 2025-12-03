@@ -1,6 +1,6 @@
 /* ==========================================================================
    pyk.ee Homepage JavaScript
-   Fish eye tracking, click interaction, particle system
+   Fish whole-element tracking, wiggle interaction, particle system
    ========================================================================== */
 
 (function() {
@@ -18,9 +18,9 @@
       speed: 0.3,
       color: 'rgba(255, 153, 0, 0.4)'
     },
-    eye: {
-      maxOffset: 2,
-      smoothing: 0.15
+    mascot: {
+      maxOffset: 8,
+      smoothing: 0.1
     }
   };
 
@@ -31,21 +31,17 @@
   var state = {
     mouseX: 0,
     mouseY: 0,
-    targetPupilX: 0,
-    targetPupilY: 0,
-    currentPupilX: 0,
-    currentPupilY: 0,
+    targetX: 0,
+    targetY: 0,
+    currentX: 0,
+    currentY: 0,
     reducedMotion: false,
     particles: [],
     canvas: null,
     ctx: null,
-    pupil: null,
-    wink: null,
     mascot: null,
-    eyeCenterX: 44,
-    eyeCenterY: 14,
     animationId: null,
-    isWinking: false
+    isWiggling: false
   };
 
   /* --------------------------------------------------------------------------
@@ -71,22 +67,21 @@
     mediaQuery.addEventListener('change', function(e) {
       state.reducedMotion = e.matches;
       if (state.reducedMotion) {
-        resetPupilPosition();
+        resetMascotPosition();
       }
     });
   }
 
-  function resetPupilPosition() {
-    if (state.pupil) {
-      state.pupil.setAttribute('cx', state.eyeCenterX);
-      state.pupil.setAttribute('cy', state.eyeCenterY);
+  function resetMascotPosition() {
+    if (state.mascot) {
+      state.mascot.style.transform = 'translate(0px, 0px)';
     }
-    state.currentPupilX = 0;
-    state.currentPupilY = 0;
+    state.currentX = 0;
+    state.currentY = 0;
   }
 
   /* --------------------------------------------------------------------------
-     Eye Tracking
+     Whole-Element Float Tracking
      -------------------------------------------------------------------------- */
 
   function handleMouseMove(e) {
@@ -94,86 +89,77 @@
     state.mouseY = e.clientY;
   }
 
-  function updateEyeTarget() {
-    if (!state.mascot || state.reducedMotion || state.isWinking) {
+  function updateMascotTarget() {
+    if (!state.mascot || state.reducedMotion || state.isWiggling) {
       return;
     }
 
     var rect = state.mascot.getBoundingClientRect();
-    var svgWidth = rect.width;
-    var svgHeight = rect.height;
+    var mascotCenterX = rect.left + rect.width / 2;
+    var mascotCenterY = rect.top + rect.height / 2;
 
-    var eyeScreenX = rect.left + (state.eyeCenterX / 64) * svgWidth;
-    var eyeScreenY = rect.top + (state.eyeCenterY / 32) * svgHeight;
+    var deltaX = state.mouseX - mascotCenterX;
+    var deltaY = state.mouseY - mascotCenterY;
 
-    var deltaX = state.mouseX - eyeScreenX;
-    var deltaY = state.mouseY - eyeScreenY;
-
+    var angle = Math.atan2(deltaY, deltaX);
     var distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
-    if (distance > 0) {
-      var normalizedX = deltaX / distance;
-      var normalizedY = deltaY / distance;
+    var intensity = Math.min(distance / 300, 1);
 
-      var intensity = Math.min(distance / 200, 1);
-
-      state.targetPupilX = normalizedX * CONFIG.eye.maxOffset * intensity;
-      state.targetPupilY = normalizedY * CONFIG.eye.maxOffset * intensity;
-    }
+    state.targetX = Math.cos(angle) * CONFIG.mascot.maxOffset * intensity;
+    state.targetY = Math.sin(angle) * CONFIG.mascot.maxOffset * intensity;
   }
 
-  function updatePupilPosition() {
-    if (state.reducedMotion || state.isWinking || !state.pupil) {
+  function updateMascotPosition() {
+    if (state.reducedMotion || state.isWiggling || !state.mascot) {
       return;
     }
 
-    state.currentPupilX = lerp(state.currentPupilX, state.targetPupilX, CONFIG.eye.smoothing);
-    state.currentPupilY = lerp(state.currentPupilY, state.targetPupilY, CONFIG.eye.smoothing);
+    state.currentX = lerp(state.currentX, state.targetX, CONFIG.mascot.smoothing);
+    state.currentY = lerp(state.currentY, state.targetY, CONFIG.mascot.smoothing);
 
-    var newCx = state.eyeCenterX + state.currentPupilX;
-    var newCy = state.eyeCenterY + state.currentPupilY;
-
-    state.pupil.setAttribute('cx', newCx);
-    state.pupil.setAttribute('cy', newCy);
+    state.mascot.style.transform = 'translate(' + state.currentX + 'px, ' + state.currentY + 'px)';
   }
 
   /* --------------------------------------------------------------------------
-     Fish Click Interaction - Wink Animation
+     Fish Click Interaction - Wiggle Animation
      -------------------------------------------------------------------------- */
 
   function handleFishClick() {
-    if (state.isWinking || state.reducedMotion) {
+    if (state.isWiggling || state.reducedMotion) {
       return;
     }
 
-    state.isWinking = true;
-
-    if (state.wink) {
-      state.wink.style.opacity = '1';
-    }
-    if (state.pupil) {
-      state.pupil.style.opacity = '0';
-    }
+    state.isWiggling = true;
+    state.mascot.classList.add('wiggle');
 
     setTimeout(function() {
-      if (state.wink) {
-        state.wink.style.opacity = '0';
-      }
-      if (state.pupil) {
-        state.pupil.style.opacity = '1';
-      }
-      state.isWinking = false;
-    }, 200);
+      state.mascot.classList.remove('wiggle');
+      state.isWiggling = false;
+    }, 400);
   }
 
   /* --------------------------------------------------------------------------
-     Scroll to Top
+     Scroll Indicators
      -------------------------------------------------------------------------- */
 
-  function setupScrollToTop() {
-    var scrollIndicator = document.querySelector('.scroll-indicator');
-    if (scrollIndicator) {
-      scrollIndicator.addEventListener('click', function() {
+  function setupScrollIndicators() {
+    var scrollDownIndicator = document.querySelector('.scroll-down-indicator');
+    var scrollUpIndicator = document.querySelector('.scroll-indicator');
+
+    if (scrollDownIndicator) {
+      scrollDownIndicator.addEventListener('click', function() {
+        var whatIDo = document.querySelector('.what-i-do');
+        if (whatIDo) {
+          whatIDo.scrollIntoView({
+            behavior: state.reducedMotion ? 'auto' : 'smooth'
+          });
+        }
+      });
+    }
+
+    if (scrollUpIndicator) {
+      scrollUpIndicator.addEventListener('click', function() {
         window.scrollTo({
           top: 0,
           behavior: state.reducedMotion ? 'auto' : 'smooth'
@@ -282,8 +268,8 @@
      -------------------------------------------------------------------------- */
 
   function animate() {
-    updateEyeTarget();
-    updatePupilPosition();
+    updateMascotTarget();
+    updateMascotPosition();
     updateParticles();
 
     state.animationId = requestAnimationFrame(animate);
@@ -303,6 +289,7 @@
 
     if (state.mascot) {
       state.mascot.addEventListener('click', handleFishClick);
+      state.mascot.style.cursor = 'pointer';
     }
   }
 
@@ -314,12 +301,10 @@
     checkReducedMotion();
 
     state.mascot = document.querySelector('.mascot');
-    state.pupil = document.getElementById('fish-pupil');
-    state.wink = document.getElementById('fish-wink');
 
     setupCanvas();
     setupEventListeners();
-    setupScrollToTop();
+    setupScrollIndicators();
 
     if (!state.reducedMotion) {
       animate();
