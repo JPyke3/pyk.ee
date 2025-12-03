@@ -198,13 +198,11 @@
     }
 
     // Force reflow then add class to trigger transitions
-    // Use requestAnimationFrame to ensure browser has painted initial state
+    // Use setTimeout to ensure browser has fully rendered initial state
     element.offsetHeight;
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        element.classList.add('typing-complete');
-      });
-    });
+    setTimeout(function() {
+      element.classList.add('typing-complete');
+    }, 10);
   }
 
   // --------------------------------------------------------------------------

@@ -96,8 +96,11 @@
     }
 
     // Force reflow then add class to trigger transitions
+    // Use setTimeout to ensure browser has fully rendered initial state
     element.offsetHeight;
-    element.classList.add('typing-complete');
+    setTimeout(function() {
+      element.classList.add('typing-complete');
+    }, 10);
   }
 
   /* --------------------------------------------------------------------------
