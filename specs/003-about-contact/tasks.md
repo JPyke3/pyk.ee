@@ -130,14 +130,14 @@
 
 **Purpose**: Final polish, validation, and commits
 
-- [ ] T048 [P] Test both pages via `file://` protocol for zero-build compliance
-- [ ] T049 [P] Test both pages via local HTTP server
-- [ ] T050 [P] Test reduced motion preference (disable animations)
-- [ ] T051 [P] Test mobile viewport (375px width)
-- [ ] T052 [P] Validate keyboard navigation and focus indicators
-- [ ] T053 Verify all external links have `target="_blank" rel="noopener noreferrer"`
-- [ ] T054 Run quickstart.md validation checklist
-- [ ] T055 Create atomic commits per Article XI guidelines
+- [x] T048 [P] Test both pages via `file://` protocol for zero-build compliance
+- [x] T049 [P] Test both pages via local HTTP server
+- [x] T050 [P] Test reduced motion preference (disable animations)
+- [x] T051 [P] Test mobile viewport (375px width)
+- [x] T052 [P] Validate keyboard navigation and focus indicators
+- [x] T053 Verify all external links have `target="_blank" rel="noopener noreferrer"`
+- [x] T054 Run quickstart.md validation checklist
+- [x] T055 Create atomic commits per Article XI guidelines
 - [ ] T056 Push feature branch to remote
 
 ---
