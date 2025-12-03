@@ -27,7 +27,7 @@
   var GLADOS_QUOTES = [
     { text: "The cake is a lie.", attribution: "— GLaDOS" },
     { text: "This was a triumph.", attribution: "— GLaDOS" },
-    { text: "I'm not angry. I'm being so sincere right now.", attribution: "— GLaDOS" },
+    { text: "I'm not even angry. I'm being so sincere right now.", attribution: "— GLaDOS" },
     { text: "Speedy thing goes in, speedy thing comes out.", attribution: "— GLaDOS" },
     { text: "For science. You monster.", attribution: "— GLaDOS" }
   ];
@@ -38,7 +38,8 @@
 
   var state = {
     reducedMotion: false,
-    toastTimeout: null
+    toastTimeout: null,
+    portalMode: false
   };
 
   /* --------------------------------------------------------------------------
@@ -200,45 +201,59 @@
   }
 
   /* --------------------------------------------------------------------------
-     Companion Cube Easter Egg
+     Portal Mode Easter Egg
      -------------------------------------------------------------------------- */
 
-  function setupCompanionCube() {
+  function setupPortalMode() {
     var trigger = document.querySelector('.easter-egg-trigger');
     if (!trigger) {
       return;
     }
 
-    // Create companion cube SVG - Portal Weighted Companion Cube design
-    // Isometric view with pink heart and corner decorations
-    var cube = document.createElement('div');
-    cube.className = 'companion-cube';
-    cube.setAttribute('aria-hidden', 'true');
-    cube.innerHTML = '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">' +
-      '<!-- Portal Weighted Companion Cube -->' +
-      // Main cube body (3D isometric)
-      '<polygon fill="#665544" points="24,4 44,14 44,34 24,44 4,34 4,14"/>' +
-      // Top face
-      '<polygon fill="#887766" points="24,4 44,14 24,24 4,14"/>' +
-      // Left face
-      '<polygon fill="#554433" points="4,14 24,24 24,44 4,34"/>' +
-      // Right face
-      '<polygon fill="#776655" points="44,14 44,34 24,44 24,24"/>' +
-      // Corner circles (top)
-      '<circle fill="#CC9966" cx="14" cy="10" r="2"/>' +
-      '<circle fill="#CC9966" cx="34" cy="10" r="2"/>' +
-      '<circle fill="#CC9966" cx="8" cy="18" r="2"/>' +
-      '<circle fill="#CC9966" cx="40" cy="18" r="2"/>' +
-      // Pink heart on front face
-      '<path fill="#FF6699" d="M24,20 C22,18 19,18 18,20 C17,22 18,24 24,30 C30,24 31,22 30,20 C29,18 26,18 24,20 Z"/>' +
-      // Heart highlight
-      '<path fill="#FF99BB" d="M20,20 C19,19 18,19 18,20 C18,21 19,22 20,21 Z"/>' +
-      // Edge highlights
-      '<line stroke="#FFCC99" stroke-width="0.5" x1="24" y1="4" x2="44" y2="14"/>' +
-      '<line stroke="#FFCC99" stroke-width="0.5" x1="24" y1="4" x2="4" y2="14"/>' +
-      '</svg>';
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      togglePortalMode(trigger);
+    });
+  }
 
-    trigger.appendChild(cube);
+  function togglePortalMode(triggerElement) {
+    var isPortalMode = document.body.classList.contains('portal-mode');
+
+    // If reduced motion, skip animation and just toggle
+    if (state.reducedMotion) {
+      document.body.classList.toggle('portal-mode');
+      state.portalMode = !isPortalMode;
+      return;
+    }
+
+    // Create portal overlay for animation
+    var overlay = document.createElement('div');
+    overlay.className = 'portal-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+
+    // Position overlay centered on trigger element
+    var rect = triggerElement.getBoundingClientRect();
+    var centerX = rect.left + rect.width / 2;
+    var centerY = rect.top + rect.height / 2;
+    overlay.style.setProperty('--portal-x', centerX + 'px');
+    overlay.style.setProperty('--portal-y', centerY + 'px');
+
+    document.body.appendChild(overlay);
+
+    // Trigger animation
+    overlay.offsetHeight; // Force reflow
+    overlay.classList.add('expanding');
+
+    // Toggle portal mode after animation starts
+    setTimeout(function() {
+      document.body.classList.toggle('portal-mode');
+      state.portalMode = !isPortalMode;
+    }, 250);
+
+    // Remove overlay after animation completes
+    setTimeout(function() {
+      overlay.remove();
+    }, 600);
   }
 
   /* --------------------------------------------------------------------------
@@ -260,8 +275,8 @@
     // Email copy functionality
     setupEmailCopy();
 
-    // Companion cube easter egg
-    setupCompanionCube();
+    // Portal mode easter egg
+    setupPortalMode();
   }
 
   /* --------------------------------------------------------------------------
