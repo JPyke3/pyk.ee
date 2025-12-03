@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="404 - Page not found on pyk.ee">
+  <title>404 - File Not Found | pyk.ee</title>
+  <link rel="stylesheet" href="/css/404.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+  <main class="error-container">
+    <div class="error-code">404</div>
+    <h1 class="error-title">FILE NOT FOUND</h1>
+
+    <blockquote class="glados-quote">
+      <p id="glados-text">The file you requested has been... misplaced.</p>
+      <cite class="glados-attribution">— GLaDOS</cite>
+    </blockquote>
+
+    <a href="/" class="home-link">> cd ~/home</a>
+  </main>
+
+  <script>
+    (function() {
+      var quotes = [
+        "The file you requested has been... misplaced.",
+        "The Enrichment Center regrets to inform you that this page does not exist.",
+        "Did you know you can donate your missing files to Aperture Science?",
+        "This page has been incinerated for the good of all of us.",
+        "The cake is a lie. So is this URL.",
+        "Subject demonstrated poor URL navigation skills. Terminating test.",
+        "The page you are looking for is in another test chamber.",
+        "This page has been removed for testing purposes. The test will continue... forever.",
+        "I'm not angry. I'm just disappointed you tried to access this page.",
+        "This was a triumph. Not finding this page, I mean. For science."
+      ];
+      var el = document.getElementById('glados-text');
+      if (el) {
+        el.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+      }
+    })();
+  </script>
+</body>
+</html>
