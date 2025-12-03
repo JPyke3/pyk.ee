@@ -21,15 +21,21 @@
   };
 
   /* --------------------------------------------------------------------------
-     GLaDOS Quotes
+     Portal Quotes
      -------------------------------------------------------------------------- */
 
-  var GLADOS_QUOTES = [
+  var PORTAL_QUOTES = [
     { text: "The cake is a lie.", attribution: "— GLaDOS" },
     { text: "This was a triumph.", attribution: "— GLaDOS" },
     { text: "I'm not even angry. I'm being so sincere right now.", attribution: "— GLaDOS" },
     { text: "Speedy thing goes in, speedy thing comes out.", attribution: "— GLaDOS" },
-    { text: "For science. You monster.", attribution: "— GLaDOS" }
+    { text: "For science. You monster.", attribution: "— GLaDOS" },
+    { text: "Remember before when I was talking about smelly garbage standing around being useless? That was a metaphor. I was actually talking about you.", attribution: "— GLaDOS" },
+    { text: "I think that one was about to say 'I love you.'", attribution: "— GLaDOS" },
+    { text: " ", attribution: "— Chell" },
+    { text: "I am NOT! A MORON!", attribution: "— Wheatley" },
+    { text: "A...A...A...A...A... Umm... A.", attribution: "— Wheatley" },
+    { text: "Target acquired.", attribution: "— Turret" }
   ];
 
   /* --------------------------------------------------------------------------
@@ -104,8 +110,8 @@
       return;
     }
 
-    var randomIndex = Math.floor(Math.random() * GLADOS_QUOTES.length);
-    var quote = GLADOS_QUOTES[randomIndex];
+    var randomIndex = Math.floor(Math.random() * PORTAL_QUOTES.length);
+    var quote = PORTAL_QUOTES[randomIndex];
 
     // Quote text with quotes on same line, attribution below
     quoteElement.innerHTML = '<span class="glados-quote-text">' + quote.text + '</span>' +
