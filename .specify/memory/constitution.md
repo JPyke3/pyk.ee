@@ -2,24 +2,26 @@
 ================================================================================
 SYNC IMPACT REPORT
 ================================================================================
-Version Change: 1.0.1 → 1.1.0 (MINOR - new principle added)
+Version Change: 1.3.0 → 1.4.0 (MINOR - new principle added)
 
 Modified Principles: None
 
 Added Sections:
-- Article XI: Strict Version Control
-  - Enforces atomic, descriptive, conventional commits
-  - Defines commit prefix conventions (feat, fix, refactor, style, docs, chore)
-  - Requires meaningful commit history that tells the project story
+- Article XII: Dependency Attribution
+  - Requires DEPENDENCIES.md documentation for all external libraries
+  - Mandates on-site attribution via "Colophon" or "Built With" section
+  - Ensures transparency about technical foundations and proper open source credit
 
 Removed Sections: None
 
 Templates Requiring Updates:
-- .specify/templates/plan-template.md ✅ (no changes needed)
+- .specify/templates/plan-template.md ✅ (no changes needed - already references Article II)
 - .specify/templates/spec-template.md ✅ (no changes needed)
 - .specify/templates/tasks-template.md ✅ (no changes needed)
 
-Follow-up TODOs: None
+Follow-up TODOs:
+- Create DEPENDENCIES.md file when first dependency is introduced
+- Decide Colophon location (footer, about page, or dedicated page) during relevant feature spec
 ================================================================================
 -->
 
@@ -227,6 +229,22 @@ All code changes MUST be version controlled with Git. Commits MUST follow strict
 
 **Rationale:** A clean git history is documentation. Feature branches enable asynchronous review and protect the main branch. Future maintainers (including future you) deserve to understand why changes were made, not just what changed.
 
+### Article XII: Dependency Attribution
+
+When external libraries or dependencies are introduced (per Article II exceptions), they MUST be properly documented and attributed.
+
+**Requirements:**
+
+1. **Documented**: All dependencies MUST be added to a `DEPENDENCIES.md` file in the project root listing:
+   - Library name and version
+   - Purpose/what it's used for
+   - License type
+   - Link to source
+
+2. **Attributed on-site**: A "Colophon" or "Built With" section MUST credit all libraries used. Location to be determined during feature specification (footer, about page, or dedicated page).
+
+**Rationale:** This ensures proper attribution to open source projects and maintains transparency about the site's technical foundations. Giving credit to the tools we build upon reflects the open source values this portfolio represents.
+
 ## Amendment Process
 
 These articles may ONLY be amended when a genuine, documented blocker is encountered that cannot be resolved within constitutional bounds.
@@ -258,4 +276,4 @@ This constitution supersedes all other development practices for the Pyk.ee port
 - Unjustified complexity MUST be refactored before merge
 - Dependencies added without plan-documented justification MUST be removed
 
-**Version**: 1.3.0 | **Ratified**: 2025-12-03 | **Last Amended**: 2025-12-03
+**Version**: 1.4.0 | **Ratified**: 2025-12-03 | **Last Amended**: 2025-12-03
