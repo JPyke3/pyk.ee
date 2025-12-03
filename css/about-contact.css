@@ -218,10 +218,16 @@ strong {
   .terminal-line,
   .typewriter-title span,
   .page-content,
-  .glados-quote {
+  .glados-quote,
+  .portal-overlay {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
+  }
+
+  /* Portal overlay should be hidden entirely with reduced motion */
+  .portal-overlay {
+    display: none !important;
   }
 }
 
@@ -606,34 +612,84 @@ strong {
 }
 
 /* --------------------------------------------------------------------------
-   Companion Cube Easter Egg
+   Portal Mode Easter Egg
    -------------------------------------------------------------------------- */
 
+/* Portal blue color variables */
+:root {
+  --color-blue: #00A1FF;
+  --color-blue-light: #33B5FF;
+  --color-blue-dim: rgba(0, 161, 255, 0.6);
+  --color-glow: rgba(255, 153, 0, 0.03);
+}
+
+/* Easter egg trigger - clickable */
 .easter-egg-trigger {
   position: relative;
-  cursor: help;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
 }
 
-.companion-cube {
-  position: absolute;
-  top: -56px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 48px;
-  height: 48px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-  z-index: 100;
+.easter-egg-trigger:hover {
+  color: var(--color-amber-light);
 }
 
-.easter-egg-trigger:hover .companion-cube {
-  opacity: 1;
+/* Portal mode - blue theme override */
+.portal-mode {
+  --color-amber: var(--color-blue);
+  --color-amber-light: var(--color-blue-light);
+  --color-amber-dim: var(--color-blue-dim);
+  --color-glow: rgba(0, 161, 255, 0.03);
 }
 
-.companion-cube svg {
+/* Update ambient glow to use CSS variable */
+.portal-mode::after {
+  background: radial-gradient(
+    ellipse at center,
+    var(--color-glow) 0%,
+    transparent 50%
+  );
+}
+
+/* Portal overlay animation element */
+.portal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  pointer-events: none;
+  z-index: 999;
+  background: radial-gradient(
+    circle at var(--portal-x, 50%) var(--portal-y, 50%),
+    rgba(0, 161, 255, 0.4) 0%,
+    rgba(0, 161, 255, 0.2) 10%,
+    transparent 10%
+  );
+  background-size: 0% 0%;
+  background-repeat: no-repeat;
+  background-position: var(--portal-x, 50%) var(--portal-y, 50%);
+}
+
+.portal-overlay.expanding {
+  animation: portalExpand 0.5s ease-out forwards;
+}
+
+@keyframes portalExpand {
+  0% {
+    background-size: 0% 0%;
+    opacity: 1;
+  }
+  50% {
+    background-size: 300% 300%;
+    opacity: 0.8;
+  }
+  100% {
+    background-size: 400% 400%;
+    opacity: 0;
+  }
 }
 
 /* --------------------------------------------------------------------------
