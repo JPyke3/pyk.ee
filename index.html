@@ -29,7 +29,42 @@
     <section class="hero">
       <div class="hero-content">
         <div class="logo" role="img" aria-label="Pykee pike mascot">
-          <img src="images/pike-mascot.svg" alt="Pykee - a friendly pixel art pike fish" class="mascot" width="128" height="128">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 32" class="mascot" aria-label="Pykee - a friendly pike fish">
+            <defs>
+              <style>
+                .fish-body { fill: #FF9900; }
+                .fish-highlight { fill: #FFB000; }
+                .fish-shadow { fill: #CC7A00; }
+                .eye-white { fill: #FFFFFF; }
+                .eye-pupil { fill: #000000; transition: transform 0.1s ease-out; }
+                .fin { fill: #E68A00; }
+              </style>
+            </defs>
+            <!-- Tail fin (triangle) -->
+            <polygon class="fin" points="0,16 12,6 12,26"/>
+            <!-- Body (oval/ellipse) -->
+            <ellipse class="fish-body" cx="32" cy="16" rx="22" ry="12"/>
+            <!-- Body highlight (top curve) -->
+            <ellipse class="fish-highlight" cx="30" cy="10" rx="14" ry="4"/>
+            <!-- Body shadow (bottom) -->
+            <ellipse class="fish-shadow" cx="34" cy="22" rx="12" ry="3"/>
+            <!-- Dorsal fin (top) -->
+            <polygon class="fin" points="28,4 36,4 32,8"/>
+            <!-- Bottom fin -->
+            <polygon class="fin" points="30,28 38,28 34,24"/>
+            <!-- Eye white -->
+            <circle class="eye-white" cx="44" cy="14" r="5"/>
+            <!-- Eye pupil (tracks mouse) -->
+            <circle id="fish-pupil" class="eye-pupil" cx="44" cy="14" r="2.5"/>
+            <!-- Eye shine -->
+            <circle class="eye-shine" fill="#FFFFFF" cx="42" cy="12" r="1.5"/>
+            <!-- Wink eyelid (hidden by default) -->
+            <path id="fish-wink" class="fish-body" d="M 39 14 Q 44 11 49 14 Q 44 17 39 14" style="opacity: 0; transition: opacity 0.15s ease;"/>
+            <!-- Mouth (simple smile curve) -->
+            <path d="M 50 18 Q 54 20 52 22" stroke="#CC7A00" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <!-- Gill line -->
+            <path d="M 24 12 Q 22 16 24 20" stroke="#CC7A00" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
         </div>
         <h1 class="hero-name">Pykee</h1>
         <p class="hero-descriptor">I build things for the web and tinker with Linux.</p>
@@ -43,10 +78,6 @@
             <span class="cta-prompt" aria-hidden="true">&gt;</span>
             <span class="cta-text">cat ./blog/latest</span>
           </a>
-        </div>
-        <div class="scroll-indicator" aria-hidden="true">
-          <span class="scroll-text">scroll</span>
-          <span class="scroll-chevron">▼</span>
         </div>
       </div>
     </section>
@@ -68,7 +99,10 @@
   </main>
 
   <footer class="site-footer">
-    <!-- Footer content -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <span class="scroll-text">back to top</span>
+      <span class="scroll-chevron">▲</span>
+    </div>
   </footer>
 
   <script src="js/homepage.js" defer></script>
