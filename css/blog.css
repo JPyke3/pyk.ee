@@ -22,6 +22,31 @@
   color: var(--color-amber-light);
   margin-bottom: var(--space-sm);
   font-weight: 400;
+  text-shadow: 0 0 20px var(--color-amber-dim);
+}
+
+/* --------------------------------------------------------------------------
+   Typewriter Effect
+   -------------------------------------------------------------------------- */
+
+.typewriter-title {
+  display: inline-block;
+}
+
+.typewriter-title span {
+  opacity: 0;
+  transition: opacity 0.05s ease;
+}
+
+.typewriter-title.typing-complete span {
+  opacity: 1;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+  color: var(--color-amber-light);
+  margin-left: 2px;
 }
 
 .blog-intro {

@@ -13,7 +13,11 @@
   var CONFIG = {
     postsPath: '../content/posts/',
     indexFile: 'index.json',
-    dateFormat: { year: 'numeric', month: 'long', day: 'numeric' }
+    dateFormat: { year: 'numeric', month: 'long', day: 'numeric' },
+    typewriter: {
+      charDelay: 50,
+      cursorChar: '█'
+    }
   };
 
   // --------------------------------------------------------------------------
@@ -34,7 +38,8 @@
     currentView: 'index',
     currentSlug: null,
     isLoading: false,
-    error: null
+    error: null,
+    reducedMotion: false
   };
 
   // --------------------------------------------------------------------------
@@ -125,6 +130,58 @@
     var div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
+  }
+
+  // --------------------------------------------------------------------------
+  // Reduced Motion Detection
+  // --------------------------------------------------------------------------
+
+  function checkReducedMotion() {
+    var mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    state.reducedMotion = mediaQuery.matches;
+
+    mediaQuery.addEventListener('change', function(e) {
+      state.reducedMotion = e.matches;
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // Typewriter Effect
+  // --------------------------------------------------------------------------
+
+  function typewriter(element) {
+    if (!element) {
+      return;
+    }
+
+    var text = element.textContent;
+    element.innerHTML = '';
+
+    // Create spans for each character
+    var chars = text.split('');
+    for (var i = 0; i < chars.length; i++) {
+      var span = document.createElement('span');
+      span.textContent = chars[i];
+      span.style.transitionDelay = (i * CONFIG.typewriter.charDelay) + 'ms';
+      element.appendChild(span);
+    }
+
+    // Add cursor
+    var cursor = document.createElement('span');
+    cursor.className = 'typewriter-cursor';
+    cursor.textContent = CONFIG.typewriter.cursorChar;
+    cursor.setAttribute('aria-hidden', 'true');
+    element.appendChild(cursor);
+
+    // Trigger animation (skip if reduced motion)
+    if (state.reducedMotion) {
+      element.classList.add('typing-complete');
+      return;
+    }
+
+    // Force reflow then add class to trigger transitions
+    element.offsetHeight;
+    element.classList.add('typing-complete');
   }
 
   // --------------------------------------------------------------------------
@@ -464,8 +521,15 @@
   function init() {
     cacheDomReferences();
     configureMarked();
+    checkReducedMotion();
     setupScrollIndicator();
     setupBackLinks();
+
+    // Typewriter effect on blog title
+    var typewriterTitle = document.querySelector('.typewriter-title');
+    if (typewriterTitle) {
+      typewriter(typewriterTitle);
+    }
 
     // Handle initial route
     handleRoute();
