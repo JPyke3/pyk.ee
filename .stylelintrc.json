@@ -1,0 +1,14 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "selector-class-pattern": null,
+    "custom-property-pattern": null,
+    "keyframes-name-pattern": null,
+    "no-descending-specificity": null
+  },
+  "ignoreFiles": [
+    "css/vendor/**",
+    "node_modules/**",
+    ".specify/**"
+  ]
+}
