@@ -92,8 +92,8 @@
 - [x] T016 [US2] Add CRT scanlines effect using `body::before` pseudo-element in `css/homepage.css`
 - [x] T017 [US2] Add ambient glow effect using radial gradient in `css/homepage.css`
 - [x] T018 [US2] Create `js/homepage.js` with DOMContentLoaded wrapper
-- [ ] T019 [US2] Design pixel art pike mascot (32x32 or 64x64, cute/approachable) — invoke `frontend-design` skill
-- [ ] T020 [US2] Replace placeholder with pixel art pike mascot in `index.html`
+- [x] T019 [US2] Design pixel art pike mascot (32x32 or 64x64, cute/approachable) — invoke `frontend-design` skill
+- [x] T020 [US2] Replace placeholder with pixel art pike mascot in `index.html`
 - [x] T021 [US2] Add `aria-label` to mascot element for accessibility in `index.html`
 - [x] T022 [US2] Implement mouse position tracking (mousemove listener) in `js/homepage.js`
 - [x] T023 [US2] Implement requestAnimationFrame render loop in `js/homepage.js`
@@ -201,9 +201,9 @@
 - [x] T058 Verify page weight is under 500KB target (~212KB actual)
 - [ ] T059 Test in Chrome, Firefox, Safari, Edge browsers
 - [ ] T060 Verify page opens correctly from `file://` protocol
-- [ ] T061 Add scroll affordance indicator (animated chevron) to hint at below-fold content
-- [ ] T062 Generate favicon from pike mascot (favicon.ico, favicon.svg, apple-touch-icon)
-- [ ] T063 Add favicon link tags to `index.html`
+- [x] T061 Add scroll affordance indicator (animated chevron) to hint at below-fold content
+- [x] T062 Generate favicon from pike mascot (favicon.ico, favicon.svg, apple-touch-icon)
+- [x] T063 Add favicon link tags to `index.html`
 
 ---
 
