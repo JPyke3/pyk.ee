@@ -228,6 +228,45 @@
 
 ---
 
+## Phase 9: Blog Animation Fix, Additional Quotes, and Site-Wide Quote Footer
+
+**Purpose**: Fix blog title animation, expand Portal quotes, and add quote footer to all pages for visual consistency
+
+### Fix 1: Blog Title Animation
+
+- [x] T089 Fix blog title typewriter animation in `js/blog.js` - ensure character-by-character reveal animation works (currently appears statically)
+- [x] T090 Verify blog title animation matches About/Contact pages visually
+
+### Enhancement 1: Expand Portal Quotes
+
+- [x] T091 Add new Portal quotes to `js/about-contact.js` PORTAL_QUOTES array:
+  - "Remember before when I was talking about smelly garbage standing around being useless? That was a metaphor. I was actually talking about you." — GLaDOS
+  - "I think that one was about to say 'I love you.'" — GLaDOS
+  - " " — Chell
+  - "I am NOT! A MORON!" — Wheatley
+  - "A...A...A...A...A... Umm... A." — Wheatley
+  - "Target acquired." — Turret
+
+### Enhancement 2: Site-Wide Quote Footer
+
+- [x] T092 Add Portal quote footer HTML to `index.html` (homepage) - matching About/Contact structure
+- [x] T093 Add Portal quote footer styles to `css/homepage.css` - copy `.portal-quote` styles from about-contact.css
+- [x] T094 Add quote display JavaScript to `js/homepage.js` - copy `displayPortalQuote()` function and PORTAL_QUOTES array
+- [x] T095 Add Portal quote footer HTML to `blog/index.html` - matching About/Contact structure
+- [x] T096 Add Portal quote footer styles to `css/blog.css` - inherits from homepage.css (no additional styles needed)
+- [x] T097 Add quote display JavaScript to `js/blog.js` - copy `displayPortalQuote()` function and PORTAL_QUOTES array
+- [x] T098 Ensure all pages use the same expanded PORTAL_QUOTES array (11 quotes total)
+
+### Final Tasks
+
+- [ ] T099 Test blog title animation works correctly
+- [ ] T100 Test quote footer appears on all pages (Homepage, About, Contact, Blog)
+- [ ] T101 Verify quotes rotate randomly and display correctly on each page
+- [ ] T102 Create atomic commits for Phase 9 fixes per Article XI
+- [ ] T103 Push updated feature branch to remote
+
+---
+
 ## Dependencies & Execution Order
 
 ### Phase Dependencies
@@ -298,7 +337,7 @@ Task: "Implement copyToClipboard() function in js/about-contact.js"
 
 | Metric | Count |
 |--------|-------|
-| Total Tasks | 88 |
+| Total Tasks | 103 |
 | Phase 1 (Setup) | 3 |
 | Phase 2 (Foundational) | 8 |
 | Phase 3 (US1 - About) | 15 |
@@ -307,6 +346,7 @@ Task: "Implement copyToClipboard() function in js/about-contact.js"
 | Phase 6 (Polish) | 9 |
 | Phase 7 (Fixes & Enhancements) | 13 |
 | Phase 8 (Additional Fixes & Easter Egg) | 19 |
+| Phase 9 (Blog Animation, Quotes, Site-Wide Footer) | 15 |
 | Parallelizable Tasks | 12 |
 
 **MVP Scope**: Phases 1-3 (26 tasks) deliver a functional About page.
@@ -314,6 +354,8 @@ Task: "Implement copyToClipboard() function in js/about-contact.js"
 **Fixes Scope**: Phase 7 (13 tasks) addresses user feedback on GLaDOS quote formatting, title prefix, companion cube, and adds blog typewriter effect.
 
 **Phase 8 Scope**: 19 tasks to fix GLaDOS quote text ("not even angry"), align blog title styling with About/Contact pages, and replace companion cube easter egg with Portal mode color shift animation.
+
+**Phase 9 Scope**: 15 tasks to fix blog title animation, add 6 new Portal quotes (including Chell, Wheatley, and Turret), and add quote footer to Homepage and Blog pages for site-wide visual consistency.
 
 ---
 
@@ -323,5 +365,6 @@ Task: "Implement copyToClipboard() function in js/about-contact.js"
 - [Story] label maps task to specific user story for traceability
 - Commit after each task or logical group per Article XI
 - Shared CSS/JS requires coordination if working in parallel
-- Easter eggs (GLaDOS quotes, Portal mode color shift) are in User Story 1 since About page hosts them
+- Portal quotes appear site-wide (Homepage, About, Contact, Blog) for visual consistency
+- 11 total quotes from GLaDOS, Chell, Wheatley, and Turret
 - Portal mode easter egg: clicking "tinkerer" toggles all colors from amber to Portal blue with animation

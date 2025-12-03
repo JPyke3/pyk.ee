@@ -107,6 +107,8 @@ Page titles reveal character-by-character on load:
 
 **Note**: Blog page requires integration with existing blog.js — the typewriter effect should be added to the blog index view title.
 
+**IMPORTANT - Blog Title Animation**: The blog page title MUST have the same typewriter animation as About and Contact pages. The title text should reveal character-by-character with the blinking cursor, not just appear statically.
+
 **IMPORTANT - Blog Title Styling**: The blog page title MUST match the About and Contact page styling exactly:
 - Use `.page-title` class (not `.blog-title`)
 - Font size: `var(--font-size-hero)` (2.5rem)
@@ -152,14 +154,25 @@ Click email address to copy, show brief confirmation:
 
 Two easter eggs to reinforce the Aperture Science aesthetic:
 
-**Easter Egg 1: GLaDOS Quote Footer**
-- Random GLaDOS quote displayed in footer on page load
-- Quotes:
-  - "The cake is a lie."
-  - "This was a triumph."
-  - "I'm not even angry. I'm being so sincere right now."
-  - "Speedy thing goes in, speedy thing comes out."
-  - "For science. You monster."
+**Easter Egg 1: Portal Quote Footer (Site-Wide)**
+- Random Portal quote displayed in footer on page load
+- **IMPORTANT**: Quote footer MUST appear on ALL pages for visual consistency:
+  - Homepage (index.html)
+  - About page (about/index.html) ✓ already has it
+  - Contact page (contact/index.html) ✓ already has it
+  - Blog page (blog/index.html)
+- Quotes from various Portal characters:
+  - "The cake is a lie." — GLaDOS
+  - "This was a triumph." — GLaDOS
+  - "I'm not even angry. I'm being so sincere right now." — GLaDOS
+  - "Speedy thing goes in, speedy thing comes out." — GLaDOS
+  - "For science. You monster." — GLaDOS
+  - "Remember before when I was talking about smelly garbage standing around being useless? That was a metaphor. I was actually talking about you." — GLaDOS
+  - "I think that one was about to say 'I love you.'" — GLaDOS
+  - " " — Chell
+  - "I am NOT! A MORON!" — Wheatley
+  - "A...A...A...A...A... Umm... A." — Wheatley
+  - "Target acquired." — Turret
 - Styled with italics, dimmed opacity, small font
 - **Quote formatting**: Opening and closing quotation marks MUST be on the same line as the quote text, with attribution on a separate line below
 
