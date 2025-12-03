@@ -1,0 +1,28 @@
+name: Validate HTML/CSS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate Code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install validators
+        run: npm install -g html-validate stylelint stylelint-config-standard
+
+      - name: Validate HTML
+        run: html-validate "**/*.html" --config .html-validate.json
+
+      - name: Validate CSS
+        run: stylelint "css/**/*.css" --config .stylelintrc.json
