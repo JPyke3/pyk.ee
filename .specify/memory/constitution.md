@@ -219,7 +219,13 @@ All code changes MUST be version controlled with Git. Commits MUST follow strict
 - The git history MUST tell the story of how the project evolved
 - Squashing into a single "add homepage" commit is discouraged
 
-**Rationale:** A clean git history is documentation. Future maintainers (including future you) deserve to understand why changes were made, not just what changed.
+**Feature Branch Workflow:**
+- All feature work MUST be done on a feature branch (e.g., `001-homepage`)
+- Commits MUST be pushed to the remote feature branch regularly
+- This enables continuous review via the GitHub website
+- Feature branches MUST NOT be merged directly; use pull requests for review
+
+**Rationale:** A clean git history is documentation. Feature branches enable asynchronous review and protect the main branch. Future maintainers (including future you) deserve to understand why changes were made, not just what changed.
 
 ## Amendment Process
 
@@ -252,4 +258,4 @@ This constitution supersedes all other development practices for the Pyk.ee port
 - Unjustified complexity MUST be refactored before merge
 - Dependencies added without plan-documented justification MUST be removed
 
-**Version**: 1.2.0 | **Ratified**: 2025-12-03 | **Last Amended**: 2025-12-03
+**Version**: 1.3.0 | **Ratified**: 2025-12-03 | **Last Amended**: 2025-12-03
