@@ -1,0 +1,532 @@
+/* ==========================================================================
+   pyk.ee Homepage Styles
+   Portal/Aperture Science Terminal Aesthetic
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Font Faces - Self-hosted JetBrains Mono
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono/JetBrainsMono-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   CSS Custom Properties - Portal/Aperture Palette
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* Colours */
+  --color-amber: #FF9900;
+  --color-amber-light: #FFB000;
+  --color-amber-dim: rgba(255, 153, 0, 0.6);
+  --color-bg: #000000;
+  --color-bg-elevated: #0a0a0a;
+
+  /* Typography */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-hero: 2.5rem;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  /* Layout */
+  --max-width: 60rem;
+  --nav-height: 3.5rem;
+
+  /* Animation */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+}
+
+/* --------------------------------------------------------------------------
+   Base Reset and Typography
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-amber);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* CRT Scanlines Effect - US2 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Ambient Glow Effect - US2 */
+body::after {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 153, 0, 0.03) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* --------------------------------------------------------------------------
+   Typography
+   -------------------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-amber-light);
+}
+
+h1 {
+  font-size: var(--font-size-hero);
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+a {
+  color: var(--color-amber);
+  text-decoration: none;
+  transition: color var(--transition-fast), text-shadow var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-amber-light);
+  text-shadow: 0 0 8px var(--color-amber-dim);
+}
+
+a:focus {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Layout Containers
+   -------------------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility - Skip Link
+   -------------------------------------------------------------------------- */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-amber);
+  color: var(--color-bg);
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Navigation - US3
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  position: relative;
+  z-index: 10;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-amber-dim);
+}
+
+.nav-list {
+  display: flex;
+  gap: var(--space-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  font-size: var(--font-size-sm);
+  color: var(--color-amber);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: var(--space-xs) var(--space-sm);
+  transition: color var(--transition-fast), text-shadow var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-amber-light);
+  text-shadow: 0 0 12px var(--color-amber-dim), 0 0 24px var(--color-amber-dim);
+}
+
+.nav-link:focus {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 4px;
+}
+
+.nav-link[aria-current="page"] {
+  color: var(--color-amber-light);
+  border-bottom: 2px solid var(--color-amber);
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section - US1 First Impression
+   -------------------------------------------------------------------------- */
+
+.main-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--nav-height));
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+}
+
+.hero-content {
+  max-width: var(--max-width);
+}
+
+.logo {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: var(--color-amber);
+  margin-bottom: var(--space-lg);
+  text-shadow: 0 0 10px var(--color-amber-dim);
+  white-space: pre;
+  letter-spacing: 0;
+}
+
+.logo .blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero-name {
+  font-size: var(--font-size-hero);
+  font-weight: 700;
+  color: var(--color-amber-light);
+  margin-bottom: var(--space-sm);
+  text-shadow: 0 0 20px var(--color-amber-dim);
+}
+
+.hero-descriptor {
+  font-size: var(--font-size-lg);
+  color: var(--color-amber);
+  margin-bottom: var(--space-lg);
+  opacity: 0.9;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   Command-Prompt CTAs - US4/US5
+   -------------------------------------------------------------------------- */
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-base);
+  color: var(--color-amber);
+  text-decoration: none;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-amber-dim);
+  background: rgba(255, 153, 0, 0.05);
+  min-height: 44px;
+  min-width: 44px;
+  transition: all var(--transition-fast);
+}
+
+.cta:hover {
+  background: rgba(255, 153, 0, 0.1);
+  border-color: var(--color-amber);
+  text-shadow: 0 0 8px var(--color-amber-dim);
+  box-shadow: 0 0 20px rgba(255, 153, 0, 0.2), inset 0 0 20px rgba(255, 153, 0, 0.05);
+}
+
+.cta:focus {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 4px;
+}
+
+.cta-prompt {
+  color: var(--color-amber-light);
+  font-weight: 700;
+}
+
+.cta-text {
+  transition: text-decoration var(--transition-fast);
+}
+
+.cta:hover .cta-text {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.cta-cursor {
+  animation: blink 1s step-end infinite;
+  color: var(--color-amber-light);
+}
+
+.cta-primary {
+  border-width: 2px;
+}
+
+.cta-secondary {
+  opacity: 0.8;
+  border-style: dashed;
+}
+
+.cta-secondary:hover {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   What I Do Section - US6
+   -------------------------------------------------------------------------- */
+
+.what-i-do {
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--color-amber-dim);
+}
+
+.section-title {
+  font-size: var(--font-size-xl);
+  color: var(--color-amber-light);
+  margin-bottom: var(--space-lg);
+  font-weight: 400;
+}
+
+.interests {
+  max-width: 40rem;
+}
+
+.interests p {
+  color: var(--color-amber);
+  opacity: 0.9;
+  margin-bottom: var(--space-md);
+}
+
+.interests strong {
+  color: var(--color-amber-light);
+  font-weight: 700;
+}
+
+.links {
+  margin-top: var(--space-lg);
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-base);
+  color: var(--color-amber);
+  text-decoration: none;
+  padding: var(--space-xs) 0;
+  transition: all var(--transition-fast);
+}
+
+.github-link:hover {
+  color: var(--color-amber-light);
+  text-shadow: 0 0 8px var(--color-amber-dim);
+}
+
+.github-link:hover span {
+  transform: translateX(4px);
+}
+
+.github-link span {
+  transition: transform var(--transition-fast);
+}
+
+/* --------------------------------------------------------------------------
+   Particle Canvas - US2
+   -------------------------------------------------------------------------- */
+
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive - Mobile Breakpoint (max-width: 767px)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  :root {
+    --font-size-hero: 1.75rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-xl: 1.25rem;
+    --space-xl: 2rem;
+    --space-lg: 1rem;
+  }
+
+  .nav-list {
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
+    padding: var(--space-sm);
+  }
+
+  .hero {
+    padding: var(--space-lg);
+    min-height: calc(100vh - 4rem);
+  }
+
+  .logo {
+    font-size: 0.4rem;
+    overflow-x: auto;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .what-i-do {
+    padding: var(--space-lg) 0;
+  }
+
+  .container {
+    padding: 0 var(--space-md);
+  }
+}
+
+/* Extra small screens - prevent horizontal scroll */
+@media (max-width: 320px) {
+  .logo {
+    font-size: 0.3rem;
+  }
+
+  .nav-list {
+    gap: var(--space-sm);
+  }
+
+  .nav-link {
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+  }
+}
