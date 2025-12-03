@@ -25,6 +25,24 @@
   };
 
   /* --------------------------------------------------------------------------
+     Portal Quotes
+     -------------------------------------------------------------------------- */
+
+  var PORTAL_QUOTES = [
+    { text: "The cake is a lie.", attribution: "— GLaDOS" },
+    { text: "This was a triumph.", attribution: "— GLaDOS" },
+    { text: "I'm not even angry. I'm being so sincere right now.", attribution: "— GLaDOS" },
+    { text: "Speedy thing goes in, speedy thing comes out.", attribution: "— GLaDOS" },
+    { text: "For science. You monster.", attribution: "— GLaDOS" },
+    { text: "Remember before when I was talking about smelly garbage standing around being useless? That was a metaphor. I was actually talking about you.", attribution: "— GLaDOS" },
+    { text: "I think that one was about to say 'I love you.'", attribution: "— GLaDOS" },
+    { text: " ", attribution: "— Chell" },
+    { text: "I am NOT! A MORON!", attribution: "— Wheatley" },
+    { text: "A...A...A...A...A... Umm... A.", attribution: "— Wheatley" },
+    { text: "Target acquired.", attribution: "— Turret" }
+  ];
+
+  /* --------------------------------------------------------------------------
      State
      -------------------------------------------------------------------------- */
 
@@ -294,6 +312,23 @@
   }
 
   /* --------------------------------------------------------------------------
+     Portal Quote Display
+     -------------------------------------------------------------------------- */
+
+  function displayPortalQuote() {
+    var quoteElement = document.querySelector('.portal-quote');
+    if (!quoteElement) {
+      return;
+    }
+
+    var randomIndex = Math.floor(Math.random() * PORTAL_QUOTES.length);
+    var quote = PORTAL_QUOTES[randomIndex];
+
+    quoteElement.innerHTML = '<span class="portal-quote-text">' + quote.text + '</span>' +
+      '<span class="portal-attribution">' + quote.attribution + '</span>';
+  }
+
+  /* --------------------------------------------------------------------------
      Initialization
      -------------------------------------------------------------------------- */
 
@@ -305,6 +340,7 @@
     setupCanvas();
     setupEventListeners();
     setupScrollIndicators();
+    displayPortalQuote();
 
     if (!state.reducedMotion) {
       animate();

@@ -423,9 +423,50 @@ a:focus {
 
 .site-footer {
   display: flex;
-  justify-content: center;
-  padding: var(--space-lg) 0;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-xl) var(--space-lg);
   border-top: 1px solid var(--color-amber-dim);
+  margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Portal Quote Footer
+   -------------------------------------------------------------------------- */
+
+.portal-quote {
+  font-style: italic;
+  font-size: var(--font-size-sm);
+  color: var(--color-amber-dim);
+  opacity: 0;
+  animation: fadeSlideUp 0.4s ease-out forwards;
+  animation-delay: 1.2s;
+  text-align: center;
+  max-width: 30rem;
+  margin-bottom: var(--space-md);
+}
+
+.portal-quote-text::before {
+  content: '"';
+}
+
+.portal-quote-text::after {
+  content: '"';
+}
+
+.portal-attribution {
+  display: block;
+  margin-top: var(--space-xs);
+  font-style: normal;
+  font-size: var(--font-size-sm);
+  opacity: 0.6;
+}
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* --------------------------------------------------------------------------
