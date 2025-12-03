@@ -1,34 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <!-- Pykee Pike Favicon - Simplified for small sizes -->
-  <rect fill="#000000" width="32" height="32"/>
+  <!-- Pykee Pike Favicon - Ichthys-style, transparent background -->
 
-  <!-- Body shape -->
-  <rect fill="#FF9900" x="4" y="12" width="2" height="6"/>
-  <rect fill="#FF9900" x="6" y="10" width="2" height="10"/>
-  <rect fill="#FF9900" x="8" y="9" width="2" height="12"/>
-  <rect fill="#FF9900" x="10" y="8" width="2" height="14"/>
-  <rect fill="#FF9900" x="12" y="7" width="2" height="16"/>
-  <rect fill="#FF9900" x="14" y="7" width="2" height="16"/>
-  <rect fill="#FF9900" x="16" y="8" width="2" height="14"/>
-  <rect fill="#FF9900" x="18" y="9" width="2" height="12"/>
-  <rect fill="#FF9900" x="20" y="10" width="2" height="10"/>
-  <rect fill="#FF9900" x="22" y="11" width="2" height="8"/>
-  <rect fill="#FF9900" x="24" y="13" width="2" height="4"/>
+  <!-- Tail fin (triangle) -->
+  <polygon fill="#E68A00" points="0,16 6,10 6,22"/>
 
-  <!-- Tail -->
-  <rect fill="#E68A00" x="2" y="13" width="2" height="4"/>
-  <rect fill="#E68A00" x="0" y="12" width="2" height="2"/>
-  <rect fill="#E68A00" x="0" y="16" width="2" height="2"/>
+  <!-- Body (oval) -->
+  <ellipse fill="#FF9900" cx="16" cy="16" rx="12" ry="8"/>
 
-  <!-- Snout -->
-  <rect fill="#FFB000" x="26" y="14" width="4" height="2"/>
-  <rect fill="#FF9900" x="30" y="14" width="2" height="2"/>
+  <!-- Body highlight -->
+  <ellipse fill="#FFB000" cx="14" cy="12" rx="6" ry="2"/>
 
-  <!-- Eye -->
-  <rect fill="#FFFFFF" x="19" y="12" width="4" height="4"/>
-  <rect fill="#000000" x="21" y="13" width="2" height="2"/>
+  <!-- Eye white -->
+  <circle fill="#FFFFFF" cx="22" cy="14" r="3"/>
+
+  <!-- Eye pupil -->
+  <circle id="favicon-pupil" fill="#000000" cx="23" cy="14" r="1.5"/>
 
   <!-- Top fin -->
-  <rect fill="#E68A00" x="13" y="5" width="2" height="2"/>
-  <rect fill="#E68A00" x="15" y="6" width="2" height="2"/>
+  <polygon fill="#E68A00" points="14,8 18,8 16,11"/>
 </svg>
