@@ -124,16 +124,24 @@ emailLink.addEventListener('click', function(e) {
 var GLADOS_QUOTES = [
   "The cake is a lie.",
   "This was a triumph.",
-  "I'm not angry. I'm actually quite impressed.",
+  "I'm not angry. I'm being so sincere right now.",
   "Speedy thing goes in, speedy thing comes out.",
   "For science. You monster."
 ];
 ```
 
-**Companion Cube SVG** (8x8 pixel art):
-- Pink/amber heart on gray cube shape
+**Quote Formatting**: The closing quotation mark MUST appear on the same line as the quote text. The attribution ("— GLaDOS") appears on a separate line below. This is standard typographic convention for blockquotes.
+
+**Companion Cube SVG** (32x32 or 48x48):
+- Must be recognizable as the Portal Weighted Companion Cube
+- Gray cube body with 3D/isometric appearance
+- Pink heart on visible face(s)
+- Corner decorations matching the game's distinctive design
+- Amber tint applied to match site palette
 - Appears when hovering "tinkerer" text on About page
 - CSS `opacity: 0` → `opacity: 1` transition
+
+**Note**: Initial 8x8 implementation was too abstract and unrecognizable. Redesigned to 32x32+ with proper cube geometry and iconic heart symbol.
 
 ---
 

@@ -97,12 +97,15 @@ Since 1998
 - CSS `@keyframes` with `animation-delay` based on line index
 - Respects `prefers-reduced-motion` — shows all lines immediately if enabled
 
-### 2. Typewriter Effect (Both Pages)
+### 2. Typewriter Effect (About, Contact, and Blog Pages)
 
 Page titles reveal character-by-character on load:
 
-**About**: `# whoami`
+**About**: `# ./whoami`
 **Contact**: `# ./contact`
+**Blog**: `# ./blog`
+
+**Note**: Blog page requires integration with existing blog.js — the typewriter effect should be added to the blog index view title.
 
 **Implementation**:
 - JavaScript `typewriter()` function
@@ -147,16 +150,21 @@ Two easter eggs to reinforce the Aperture Science aesthetic:
 - Quotes:
   - "The cake is a lie."
   - "This was a triumph."
-  - "I'm not angry. I'm actually quite impressed."
+  - "I'm not angry. I'm being so sincere right now."
   - "Speedy thing goes in, speedy thing comes out."
   - "For science. You monster."
 - Styled with italics, dimmed opacity, small font
+- **Quote formatting**: Opening and closing quotation marks MUST be on the same line as the quote text, with attribution on a separate line below
 
 **Easter Egg 2: Companion Cube Hover**
 - Hidden weighted companion cube appears on About page when hovering specific word ("tinkerer")
-- Small pixel art cube (8x8) fades in near cursor position
+- Small pixel art companion cube (32x32) fades in above the trigger word
 - Disappears on mouse out
-- Cube SVG inline, styled with amber fill
+- Cube SVG must be recognizable as the Portal Weighted Companion Cube:
+  - Gray cube body with beveled/3D appearance
+  - Pink heart on each visible face
+  - Corner decorations matching the game design
+- Styled with amber tint to match site palette
 
 ### 6. Page Load Animation
 

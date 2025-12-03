@@ -142,6 +142,44 @@
 
 ---
 
+## Phase 7: Fixes and Enhancements
+
+**Purpose**: Address feedback and add blog page typewriter effect
+
+### Fix 1: GLaDOS Quote Formatting
+
+- [ ] T057 Fix GLaDOS quote in `css/about-contact.css` - move closing quote to same line as quote text
+- [ ] T058 Update `js/about-contact.js` - change quote HTML structure so closing " is inline with quote, attribution on separate line
+
+### Fix 2: About Page Title Prefix
+
+- [ ] T059 Update `about/index.html` - change title from `# whoami` to `# ./whoami`
+
+### Fix 3: Companion Cube SVG Redesign
+
+- [ ] T060 Redesign companion cube SVG in `js/about-contact.js` - create recognizable Portal Weighted Companion Cube with:
+  - Gray cube body with 3D/isometric appearance
+  - Pink heart on visible face(s)
+  - Corner decorations matching game design
+  - Amber tint to match site palette
+- [ ] T061 Update `.companion-cube` styles in `css/about-contact.css` - adjust size to 48x48 for visibility
+
+### Enhancement: Blog Page Typewriter Effect
+
+- [ ] T062 Add `.typewriter-title` class to blog title in `blog/index.html`
+- [ ] T063 Update blog title text from `# Blog` to `# ./blog` in `blog/index.html`
+- [ ] T064 Add typewriter CSS styles to `css/blog.css` (copy from about-contact.css)
+- [ ] T065 Add typewriter JavaScript function to `js/blog.js`
+- [ ] T066 Initialize typewriter effect on blog index load in `js/blog.js`
+
+### Final Tasks
+
+- [ ] T067 Test all fixes in browser (About, Contact, Blog pages)
+- [ ] T068 Create atomic commits for fixes per Article XI
+- [ ] T069 Push updated feature branch to remote
+
+---
+
 ## Dependencies & Execution Order
 
 ### Phase Dependencies
@@ -152,6 +190,7 @@
 - **User Story 2 (Phase 4)**: Depends on Foundational - Contact page (can parallel with US1)
 - **User Story 3 (Phase 5)**: Depends on US1 and US2 completion for navigation testing
 - **Polish (Phase 6)**: Depends on all user stories complete
+- **Fixes & Enhancements (Phase 7)**: Depends on Phase 6 - addresses user feedback
 
 ### User Story Dependencies
 
@@ -211,16 +250,19 @@ Task: "Implement copyToClipboard() function in js/about-contact.js"
 
 | Metric | Count |
 |--------|-------|
-| Total Tasks | 56 |
+| Total Tasks | 69 |
 | Phase 1 (Setup) | 3 |
 | Phase 2 (Foundational) | 8 |
 | Phase 3 (US1 - About) | 15 |
 | Phase 4 (US2 - Contact) | 14 |
 | Phase 5 (US3 - Navigation) | 7 |
 | Phase 6 (Polish) | 9 |
+| Phase 7 (Fixes & Enhancements) | 13 |
 | Parallelizable Tasks | 12 |
 
 **MVP Scope**: Phases 1-3 (26 tasks) deliver a functional About page.
+
+**Fixes Scope**: Phase 7 (13 tasks) addresses user feedback on GLaDOS quote, title prefix, companion cube, and adds blog typewriter effect.
 
 ---
 
