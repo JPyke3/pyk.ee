@@ -494,6 +494,10 @@
    -------------------------------------------------------------------------- */
 
 @media (max-width: 767px) {
+  :root {
+    --font-size-hero: 1.75rem;
+  }
+
   .blog-view {
     padding: var(--space-lg) 0;
   }
