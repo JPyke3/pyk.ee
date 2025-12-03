@@ -5,6 +5,14 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
+   Additional CSS Variables (extending homepage.css)
+   -------------------------------------------------------------------------- */
+
+:root {
+  --font-size-hero: 2.5rem;
+}
+
+/* --------------------------------------------------------------------------
    Blog Layout Base
    -------------------------------------------------------------------------- */
 
@@ -17,11 +25,11 @@
   display: none;
 }
 
-.blog-title {
-  font-size: var(--font-size-2xl);
+/* Page title - matches About/Contact page styling */
+.page-title {
+  font-size: var(--font-size-hero);
   color: var(--color-amber-light);
-  margin-bottom: var(--space-sm);
-  font-weight: 400;
+  margin-bottom: var(--space-xl);
   text-shadow: 0 0 20px var(--color-amber-dim);
 }
 
