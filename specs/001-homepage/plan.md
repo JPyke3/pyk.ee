@@ -1,7 +1,7 @@
 # Implementation Plan: Homepage / Landing Page
 
 **Branch**: `001-homepage` | **Date**: 2025-12-03 | **Spec**: [spec.md](./spec.md)
-**Constitution Reference**: v1.1.0
+**Constitution Reference**: v1.3.0
 
 ## Summary
 
@@ -30,11 +30,11 @@ Build the foundational homepage for pyk.ee establishing the Portal/Aperture Scie
 | III | One-file-per-type | 1 HTML + 1 CSS + 1 JS + content folders |
 | IV | Never-nesting | Max 3 levels enforced in JS/CSS |
 | V | Content-data separation | JSON placeholders for future content |
-| VI | Pixel art aesthetic | Pixel art pike mascot, Portal palette, JetBrains Mono |
+| VI | Pixel art aesthetic | Ichthys-style pike mascot, Portal palette, JetBrains Mono |
 | VII | Anti-corporate voice | Casual copy locked in spec |
 | VIII | Desktop-first, mobile-functional | 768px breakpoint, desktop default |
 | X | Simplicity gate | CSS-first approach, JS only where needed |
-| XI | Strict version control | Atomic commits throughout |
+| XI | Strict version control | Atomic commits, feature branch workflow |
 
 **No violations requiring justification.**
 
@@ -53,11 +53,14 @@ specs/001-homepage/
 
 ```text
 /
-├── index.html              # Homepage markup
+├── index.html              # Homepage markup (includes inline SVG mascot)
+├── favicon.svg             # Pike mascot favicon (ichthys-style)
 ├── css/
 │   └── homepage.css        # Homepage styles (global foundation)
 ├── js/
-│   └── homepage.js         # Logo tracking, particle canvas
+│   └── homepage.js         # Eye tracking, wink animation, particles
+├── images/
+│   └── pike-mascot.svg     # Pike mascot source (for sharing/external use)
 ├── fonts/
 │   └── JetBrainsMono/      # Self-hosted font files
 │       ├── JetBrainsMono-Regular.woff2
@@ -82,11 +85,13 @@ From spec clarifications:
 | Secondary amber | #FFB000 |
 | Background | #000000 (pure black) |
 | Font stack | JetBrains Mono, Fira Code, Courier New, monospace |
-| Logo style | Pixel art pike fish mascot ("Pykee") |
-| Logo size | 32x32 or 64x64 pixel grid |
-| Logo tracking | Noticeable easter egg (discovered within seconds) |
+| Logo style | Ichthys-style pike fish mascot (oval body, triangle tail) |
+| Logo size | 64x32 viewBox, displayed at 128x64px |
+| Logo tracking | Eye pupil tracks cursor (noticeable easter egg) |
+| Logo interaction | Click to wink (eyelid closes briefly) |
 | Primary brand name | "Pykee" (displayed as main heading) |
 | Background | CRT scanlines + minimal ambient motion |
+| Scroll indicator | Footer position, "back to top" with clickable smooth scroll |
 
 ## Technical Design
 
@@ -113,10 +118,11 @@ From spec clarifications:
 - Mobile: static state (no touch equivalent)
 
 **Mascot Structure**:
-- Pixel art pike rendered as `<img>` or inline SVG with `aria-label` for accessibility
-- 64x64 display size (scaled from 32x32 or 64x64 source for crisp pixels)
-- Transform applied to entire mascot based on cursor-to-mascot vector
-- CSS `image-rendering: pixelated` for crisp scaling
+- Ichthys-style pike (oval body, triangular tail fin) rendered as inline SVG for interactivity
+- 128x64 display size (viewBox 64x32)
+- Eye pupil tracks cursor position smoothly via SVG attribute manipulation
+- Click interaction triggers wink animation (eyelid closes briefly)
+- Separate external SVG file (`images/pike-mascot.svg`) for favicon/sharing use
 
 ### 2. Terminal Background Layers
 

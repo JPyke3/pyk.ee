@@ -92,12 +92,13 @@
 - [x] T016 [US2] Add CRT scanlines effect using `body::before` pseudo-element in `css/homepage.css`
 - [x] T017 [US2] Add ambient glow effect using radial gradient in `css/homepage.css`
 - [x] T018 [US2] Create `js/homepage.js` with DOMContentLoaded wrapper
-- [x] T019 [US2] Design pixel art pike mascot (32x32 or 64x64, cute/approachable) — invoke `frontend-design` skill
-- [x] T020 [US2] Replace placeholder with pixel art pike mascot in `index.html`
+- [x] T019 [US2] Design ichthys-style pike mascot (oval body, triangle tail, cute/approachable)
+- [x] T020 [US2] Inline SVG mascot in `index.html` with eye pupil tracking
 - [x] T021 [US2] Add `aria-label` to mascot element for accessibility in `index.html`
 - [x] T022 [US2] Implement mouse position tracking (mousemove listener) in `js/homepage.js`
 - [x] T023 [US2] Implement requestAnimationFrame render loop in `js/homepage.js`
-- [x] T024 [US2] Implement mascot transform calculation based on cursor position in `js/homepage.js`
+- [x] T024 [US2] Implement eye pupil tracking based on cursor position in `js/homepage.js`
+- [x] T064 [US2] Add click-to-wink interaction on fish (eyelid animation) in `js/homepage.js`
 - [x] T025 [US2] Add `prefers-reduced-motion` check to disable animations in `js/homepage.js`
 - [x] T026 [P] [US2] Add canvas element for particle background in `index.html`
 - [x] T027 [US2] Implement particle system (30-50 amber particles, slow drift) in `js/homepage.js`
@@ -201,9 +202,10 @@
 - [x] T058 Verify page weight is under 500KB target (~212KB actual)
 - [ ] T059 Test in Chrome, Firefox, Safari, Edge browsers
 - [ ] T060 Verify page opens correctly from `file://` protocol
-- [x] T061 Add scroll affordance indicator (animated chevron) to hint at below-fold content
-- [x] T062 Generate favicon from pike mascot (favicon.ico, favicon.svg, apple-touch-icon)
+- [x] T061 Add scroll indicator to footer ("back to top" with smooth scroll on click)
+- [x] T062 Generate favicon from pike mascot (ichthys-style, transparent background)
 - [x] T063 Add favicon link tags to `index.html`
+- [x] T065 Move scroll indicator from hero to footer position
 
 ---
 
@@ -330,15 +332,15 @@ Task: "Implement mouse position tracking in js/homepage.js"
 
 | Metric | Value |
 |--------|-------|
-| **Total Tasks** | 63 |
+| **Total Tasks** | 65 |
 | **Setup Phase** | 4 tasks |
 | **Foundational Phase** | 5 tasks |
 | **US1 (First Impression)** | 6 tasks |
-| **US2 (Visual Experience)** | 13 tasks (2 pending: pike mascot design) |
+| **US2 (Visual Experience)** | 14 tasks (includes eye tracking, wink animation) |
 | **US3 (Navigation)** | 6 tasks |
 | **US4 (Contact CTA)** | 7 tasks |
 | **US5 (Blog CTA)** | 3 tasks |
 | **US6 (Personality)** | 5 tasks |
-| **Polish Phase** | 14 tasks (includes scroll indicator, favicon) |
+| **Polish Phase** | 15 tasks (includes scroll indicator, favicon, browser tests) |
 | **Parallel Opportunities** | 8 tasks marked [P] |
 | **MVP Scope** | Phase 1 + 2 + US1 (15 tasks) |
