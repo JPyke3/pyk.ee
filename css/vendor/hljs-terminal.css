@@ -1,0 +1,148 @@
+/* ==========================================================================
+   hljs-terminal.css
+   Custom highlight.js theme for pyk.ee
+   Amber-on-black terminal aesthetic matching Portal/Aperture Science vibe
+   ========================================================================== */
+
+/*
+ * Color Palette (derived from homepage.css custom properties):
+ * --color-amber: #FF9900        (base text)
+ * --color-amber-light: #FFB000  (emphasis/keywords)
+ * --color-amber-dim: rgba(255, 153, 0, 0.6)
+ * --color-bg: #000000
+ * --color-bg-elevated: #0a0a0a
+ */
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1.25rem;
+  background: #0a0a0a;
+  color: #FF9900;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  border: 1px solid rgba(255, 153, 0, 0.2);
+  border-radius: 0;
+}
+
+/* Base text - amber */
+.hljs,
+.hljs-subst {
+  color: #FF9900;
+}
+
+/* Comments - dimmed, italic terminal feel */
+.hljs-comment,
+.hljs-quote {
+  color: #806600;
+  font-style: italic;
+}
+
+/* Keywords - bright amber, the important stuff */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type {
+  color: #FFB000;
+  font-weight: 700;
+}
+
+/* Literals - slightly warmer tone */
+.hljs-literal,
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet {
+  color: #FFD54F;
+}
+
+/* Strings - muted amber, distinct but not jarring */
+.hljs-string,
+.hljs-doctag,
+.hljs-regexp {
+  color: #CC7A00;
+}
+
+/* Names/identifiers - standard amber */
+.hljs-name,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #FF9900;
+}
+
+/* Function names - bright, they're actions */
+.hljs-title,
+.hljs-title.function_,
+.hljs-section {
+  color: #FFB000;
+  font-weight: 700;
+}
+
+/* Built-ins and types - warm amber */
+.hljs-built_in,
+.hljs-class .hljs-title {
+  color: #FFAA33;
+}
+
+/* Attributes - distinct but harmonious */
+.hljs-attr,
+.hljs-attribute {
+  color: #FFB84D;
+}
+
+/* Tags (HTML/XML) - standard amber */
+.hljs-tag {
+  color: #FF9900;
+}
+
+/* Meta/preprocessor - dimmed */
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: #997700;
+}
+
+/* Deletion - darker, error-like but still amber family */
+.hljs-deletion {
+  color: #994400;
+  background: rgba(153, 68, 0, 0.1);
+}
+
+/* Addition - brighter, success-like */
+.hljs-addition {
+  color: #FFD700;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* Emphasis */
+.hljs-emphasis {
+  font-style: italic;
+}
+
+/* Strong */
+.hljs-strong {
+  font-weight: 700;
+}
+
+/* Links in code (rare but possible) */
+.hljs-link {
+  color: #FFB000;
+  text-decoration: underline;
+}
+
+/* Selection highlight */
+.hljs::selection,
+.hljs ::selection {
+  background: rgba(255, 153, 0, 0.3);
+  color: #FFB000;
+}
+
+/* Line numbers (if enabled) */
+.hljs-ln-numbers {
+  color: #664D00;
+  border-right: 1px solid rgba(255, 153, 0, 0.2);
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+  user-select: none;
+}
