@@ -290,11 +290,14 @@ a:focus {
 
 .mascot {
   width: 128px;
-  height: 128px;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
+  height: 64px;
   filter: drop-shadow(0 0 20px var(--color-amber-dim));
+  cursor: pointer;
   transition: transform var(--transition-normal);
+}
+
+.mascot:hover {
+  transform: scale(1.05);
 }
 
 .hero-name {
@@ -328,9 +331,10 @@ a:focus {
   flex-direction: column;
   align-items: center;
   gap: var(--space-xs);
-  margin-top: var(--space-xl);
+  padding: var(--space-lg);
   opacity: 0.6;
   transition: opacity var(--transition-fast);
+  cursor: pointer;
 }
 
 .scroll-indicator:hover {
@@ -355,11 +359,22 @@ a:focus {
     transform: translateY(0);
   }
   40% {
-    transform: translateY(6px);
+    transform: translateY(-6px);
   }
   60% {
-    transform: translateY(3px);
+    transform: translateY(-3px);
   }
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-amber-dim);
 }
 
 /* --------------------------------------------------------------------------
