@@ -80,3 +80,10 @@ This project uses spec-driven development. Feature specs live in `specs/` with:
 - `tasks.md` - Actionable tasks
 
 Use `/speckit.*` slash commands for the specification workflow.
+
+## Active Technologies
+- Vanilla JavaScript (ES5 for broad compatibility) + None (follows Article II - minimal dependencies) (004-projects-page)
+- localStorage for GitHub stats cache (1-hour TTL) (004-projects-page)
+
+## Recent Changes
+- 004-projects-page: Added Vanilla JavaScript (ES5 for broad compatibility) + None (follows Article II - minimal dependencies)
