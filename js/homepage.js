@@ -1,6 +1,6 @@
 /* ==========================================================================
    pyk.ee Homepage JavaScript
-   Logo tracking, particle system, ambient effects
+   Fish eye tracking, click interaction, particle system
    ========================================================================== */
 
 (function() {
@@ -18,9 +18,9 @@
       speed: 0.3,
       color: 'rgba(255, 153, 0, 0.4)'
     },
-    logo: {
-      maxOffset: 8,
-      smoothing: 0.1
+    eye: {
+      maxOffset: 2,
+      smoothing: 0.15
     }
   };
 
@@ -31,16 +31,21 @@
   var state = {
     mouseX: 0,
     mouseY: 0,
-    targetX: 0,
-    targetY: 0,
-    currentX: 0,
-    currentY: 0,
+    targetPupilX: 0,
+    targetPupilY: 0,
+    currentPupilX: 0,
+    currentPupilY: 0,
     reducedMotion: false,
     particles: [],
     canvas: null,
     ctx: null,
-    logo: null,
-    animationId: null
+    pupil: null,
+    wink: null,
+    mascot: null,
+    eyeCenterX: 44,
+    eyeCenterY: 14,
+    animationId: null,
+    isWinking: false
   };
 
   /* --------------------------------------------------------------------------
@@ -66,21 +71,22 @@
     mediaQuery.addEventListener('change', function(e) {
       state.reducedMotion = e.matches;
       if (state.reducedMotion) {
-        resetLogoPosition();
+        resetPupilPosition();
       }
     });
   }
 
-  function resetLogoPosition() {
-    if (state.logo) {
-      state.logo.style.transform = 'translate(0, 0)';
+  function resetPupilPosition() {
+    if (state.pupil) {
+      state.pupil.setAttribute('cx', state.eyeCenterX);
+      state.pupil.setAttribute('cy', state.eyeCenterY);
     }
-    state.currentX = 0;
-    state.currentY = 0;
+    state.currentPupilX = 0;
+    state.currentPupilY = 0;
   }
 
   /* --------------------------------------------------------------------------
-     Mouse Tracking - US2
+     Eye Tracking
      -------------------------------------------------------------------------- */
 
   function handleMouseMove(e) {
@@ -88,44 +94,96 @@
     state.mouseY = e.clientY;
   }
 
-  function updateLogoTarget() {
-    if (!state.logo || state.reducedMotion) {
+  function updateEyeTarget() {
+    if (!state.mascot || state.reducedMotion || state.isWinking) {
       return;
     }
 
-    var rect = state.logo.getBoundingClientRect();
-    var logoCenterX = rect.left + rect.width / 2;
-    var logoCenterY = rect.top + rect.height / 2;
+    var rect = state.mascot.getBoundingClientRect();
+    var svgWidth = rect.width;
+    var svgHeight = rect.height;
 
-    var deltaX = state.mouseX - logoCenterX;
-    var deltaY = state.mouseY - logoCenterY;
+    var eyeScreenX = rect.left + (state.eyeCenterX / 64) * svgWidth;
+    var eyeScreenY = rect.top + (state.eyeCenterY / 32) * svgHeight;
+
+    var deltaX = state.mouseX - eyeScreenX;
+    var deltaY = state.mouseY - eyeScreenY;
 
     var distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-    var maxDistance = Math.max(window.innerWidth, window.innerHeight);
 
-    var normalizedDistance = Math.min(distance / maxDistance, 1);
-    var offsetMultiplier = normalizedDistance * CONFIG.logo.maxOffset;
+    if (distance > 0) {
+      var normalizedX = deltaX / distance;
+      var normalizedY = deltaY / distance;
 
-    var angle = Math.atan2(deltaY, deltaX);
-    state.targetX = Math.cos(angle) * offsetMultiplier;
-    state.targetY = Math.sin(angle) * offsetMultiplier;
+      var intensity = Math.min(distance / 200, 1);
+
+      state.targetPupilX = normalizedX * CONFIG.eye.maxOffset * intensity;
+      state.targetPupilY = normalizedY * CONFIG.eye.maxOffset * intensity;
+    }
   }
 
-  function updateLogoPosition() {
-    if (state.reducedMotion) {
+  function updatePupilPosition() {
+    if (state.reducedMotion || state.isWinking || !state.pupil) {
       return;
     }
 
-    state.currentX = lerp(state.currentX, state.targetX, CONFIG.logo.smoothing);
-    state.currentY = lerp(state.currentY, state.targetY, CONFIG.logo.smoothing);
+    state.currentPupilX = lerp(state.currentPupilX, state.targetPupilX, CONFIG.eye.smoothing);
+    state.currentPupilY = lerp(state.currentPupilY, state.targetPupilY, CONFIG.eye.smoothing);
 
-    if (state.logo) {
-      state.logo.style.transform = 'translate(' + state.currentX + 'px, ' + state.currentY + 'px)';
+    var newCx = state.eyeCenterX + state.currentPupilX;
+    var newCy = state.eyeCenterY + state.currentPupilY;
+
+    state.pupil.setAttribute('cx', newCx);
+    state.pupil.setAttribute('cy', newCy);
+  }
+
+  /* --------------------------------------------------------------------------
+     Fish Click Interaction - Wink Animation
+     -------------------------------------------------------------------------- */
+
+  function handleFishClick() {
+    if (state.isWinking || state.reducedMotion) {
+      return;
+    }
+
+    state.isWinking = true;
+
+    if (state.wink) {
+      state.wink.style.opacity = '1';
+    }
+    if (state.pupil) {
+      state.pupil.style.opacity = '0';
+    }
+
+    setTimeout(function() {
+      if (state.wink) {
+        state.wink.style.opacity = '0';
+      }
+      if (state.pupil) {
+        state.pupil.style.opacity = '1';
+      }
+      state.isWinking = false;
+    }, 200);
+  }
+
+  /* --------------------------------------------------------------------------
+     Scroll to Top
+     -------------------------------------------------------------------------- */
+
+  function setupScrollToTop() {
+    var scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+      scrollIndicator.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: state.reducedMotion ? 'auto' : 'smooth'
+        });
+      });
     }
   }
 
   /* --------------------------------------------------------------------------
-     Particle System - US2
+     Particle System
      -------------------------------------------------------------------------- */
 
   function createParticle() {
@@ -196,7 +254,7 @@
   }
 
   /* --------------------------------------------------------------------------
-     Canvas Setup - US2
+     Canvas Setup
      -------------------------------------------------------------------------- */
 
   function setupCanvas() {
@@ -220,12 +278,12 @@
   }
 
   /* --------------------------------------------------------------------------
-     Animation Loop - US2
+     Animation Loop
      -------------------------------------------------------------------------- */
 
   function animate() {
-    updateLogoTarget();
-    updateLogoPosition();
+    updateEyeTarget();
+    updatePupilPosition();
     updateParticles();
 
     state.animationId = requestAnimationFrame(animate);
@@ -237,10 +295,15 @@
 
   function setupEventListeners() {
     document.addEventListener('mousemove', handleMouseMove);
+
     window.addEventListener('resize', function() {
       resizeCanvas();
       initParticles();
     });
+
+    if (state.mascot) {
+      state.mascot.addEventListener('click', handleFishClick);
+    }
   }
 
   /* --------------------------------------------------------------------------
@@ -250,10 +313,13 @@
   function init() {
     checkReducedMotion();
 
-    state.logo = document.querySelector('.mascot');
+    state.mascot = document.querySelector('.mascot');
+    state.pupil = document.getElementById('fish-pupil');
+    state.wink = document.getElementById('fish-wink');
 
     setupCanvas();
     setupEventListeners();
+    setupScrollToTop();
 
     if (!state.reducedMotion) {
       animate();
