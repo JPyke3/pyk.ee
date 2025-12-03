@@ -107,7 +107,9 @@ Page titles reveal character-by-character on load:
 
 **Note**: Blog page requires integration with existing blog.js — the typewriter effect should be added to the blog index view title.
 
-**IMPORTANT - Blog Title Animation**: The blog page title MUST have the same typewriter animation as About and Contact pages. The title text should reveal character-by-character with the blinking cursor, not just appear statically.
+**IMPORTANT - Blog Title Animation**: The blog page title MUST have the same typewriter animation as About and Contact pages. The title text should reveal character-by-character with the blinking cursor, not just appear statically. The animation must be visible - characters should appear one after another in sequence, not all at once.
+
+**IMPORTANT - Blog Title Mobile Sizing**: On mobile viewports, the blog page title MUST have the same font size as About and Contact pages. Currently the blog title appears larger/different when switching between pages on mobile. Ensure the responsive breakpoints apply the same `--font-size-hero` adjustments as the other pages.
 
 **IMPORTANT - Blog Title Styling**: The blog page title MUST match the About and Contact page styling exactly:
 - Use `.page-title` class (not `.blog-title`)

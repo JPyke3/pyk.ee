@@ -267,6 +267,37 @@
 
 ---
 
+## Phase 10: Blog Title Animation and Mobile Sizing Fixes
+
+**Purpose**: Fix blog page typewriter animation (characters not animating) and mobile title size inconsistency
+
+### Fix 1: Blog Title Typewriter Animation
+
+The blog page title currently appears statically instead of animating character-by-character like About and Contact pages. The typewriter effect must show each character appearing in sequence.
+
+- [x] T104 Debug blog typewriter animation in `js/blog.js` - identify why characters appear all at once instead of sequentially
+- [x] T105 Fix typewriter animation timing in `js/blog.js` - ensure 50ms delay between each character reveal (used setTimeout for reliable render timing)
+- [x] T106 Verify `.typewriter-title span` elements have correct initial `opacity: 0` in `css/blog.css`
+- [x] T107 Verify `.typing-complete span` selector properly applies `opacity: 1` transition in `css/blog.css`
+- [x] T108 Test blog title animation matches About/Contact pages exactly
+
+### Fix 2: Blog Title Mobile Size Consistency
+
+On mobile viewports, the blog page title appears at a different size than About and Contact pages when switching between them.
+
+- [x] T109 Compare `css/blog.css` responsive breakpoints with `css/about-contact.css` responsive breakpoints
+- [x] T110 Add matching `--font-size-hero` override in `css/blog.css` mobile breakpoint (767px) - should be `1.75rem` to match About/Contact
+- [x] T111 Verify blog title uses same `.page-title` class and sizing as About/Contact pages
+- [x] T112 Test mobile view (375px) - rapidly switch between Blog, About, Contact to verify consistent title sizes
+
+### Final Tasks
+
+- [x] T113 Test all fixes across desktop and mobile viewports
+- [ ] T114 Create atomic commits for Phase 10 fixes per Article XI
+- [ ] T115 Push updated feature branch to remote
+
+---
+
 ## Dependencies & Execution Order
 
 ### Phase Dependencies
@@ -337,7 +368,7 @@ Task: "Implement copyToClipboard() function in js/about-contact.js"
 
 | Metric | Count |
 |--------|-------|
-| Total Tasks | 103 |
+| Total Tasks | 115 |
 | Phase 1 (Setup) | 3 |
 | Phase 2 (Foundational) | 8 |
 | Phase 3 (US1 - About) | 15 |
@@ -347,6 +378,7 @@ Task: "Implement copyToClipboard() function in js/about-contact.js"
 | Phase 7 (Fixes & Enhancements) | 13 |
 | Phase 8 (Additional Fixes & Easter Egg) | 19 |
 | Phase 9 (Blog Animation, Quotes, Site-Wide Footer) | 15 |
+| Phase 10 (Blog Title Animation & Mobile Sizing) | 12 |
 | Parallelizable Tasks | 12 |
 
 **MVP Scope**: Phases 1-3 (26 tasks) deliver a functional About page.
@@ -356,6 +388,8 @@ Task: "Implement copyToClipboard() function in js/about-contact.js"
 **Phase 8 Scope**: 19 tasks to fix GLaDOS quote text ("not even angry"), align blog title styling with About/Contact pages, and replace companion cube easter egg with Portal mode color shift animation.
 
 **Phase 9 Scope**: 15 tasks to fix blog title animation, add 6 new Portal quotes (including Chell, Wheatley, and Turret), and add quote footer to Homepage and Blog pages for site-wide visual consistency.
+
+**Phase 10 Scope**: 12 tasks to fix blog title typewriter animation (characters appearing all at once instead of sequentially) and mobile title size inconsistency (blog title appears different size than About/Contact on mobile viewports).
 
 ---
 
