@@ -588,11 +588,12 @@ strong {
   max-width: 30rem;
 }
 
-.glados-quote::before {
+/* Quote text wrapper - contains opening and closing quotes */
+.glados-quote-text::before {
   content: '"';
 }
 
-.glados-quote::after {
+.glados-quote-text::after {
   content: '"';
 }
 
@@ -615,11 +616,11 @@ strong {
 
 .companion-cube {
   position: absolute;
-  top: -40px;
+  top: -56px;
   left: 50%;
   transform: translateX(-50%);
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;

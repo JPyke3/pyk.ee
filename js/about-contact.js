@@ -106,7 +106,8 @@
     var randomIndex = Math.floor(Math.random() * GLADOS_QUOTES.length);
     var quote = GLADOS_QUOTES[randomIndex];
 
-    quoteElement.innerHTML = quote.text +
+    // Quote text with quotes on same line, attribution below
+    quoteElement.innerHTML = '<span class="glados-quote-text">' + quote.text + '</span>' +
       '<span class="glados-attribution">' + quote.attribution + '</span>';
   }
 
@@ -208,17 +209,33 @@
       return;
     }
 
-    // Create companion cube SVG
+    // Create companion cube SVG - Portal Weighted Companion Cube design
+    // Isometric view with pink heart and corner decorations
     var cube = document.createElement('div');
     cube.className = 'companion-cube';
     cube.setAttribute('aria-hidden', 'true');
-    cube.innerHTML = '<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">' +
-      '<!-- Companion Cube - 8x8 pixel art scaled 4x -->' +
-      '<rect fill="#806600" x="4" y="4" width="24" height="24"/>' +
-      '<rect fill="#664400" x="8" y="8" width="16" height="16"/>' +
-      '<rect fill="#FF9900" x="12" y="10" width="8" height="6"/>' +
-      '<rect fill="#FFB000" x="14" y="12" width="4" height="2"/>' +
-      '<rect fill="#FF9900" x="14" y="18" width="4" height="2"/>' +
+    cube.innerHTML = '<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">' +
+      '<!-- Portal Weighted Companion Cube -->' +
+      // Main cube body (3D isometric)
+      '<polygon fill="#665544" points="24,4 44,14 44,34 24,44 4,34 4,14"/>' +
+      // Top face
+      '<polygon fill="#887766" points="24,4 44,14 24,24 4,14"/>' +
+      // Left face
+      '<polygon fill="#554433" points="4,14 24,24 24,44 4,34"/>' +
+      // Right face
+      '<polygon fill="#776655" points="44,14 44,34 24,44 24,24"/>' +
+      // Corner circles (top)
+      '<circle fill="#CC9966" cx="14" cy="10" r="2"/>' +
+      '<circle fill="#CC9966" cx="34" cy="10" r="2"/>' +
+      '<circle fill="#CC9966" cx="8" cy="18" r="2"/>' +
+      '<circle fill="#CC9966" cx="40" cy="18" r="2"/>' +
+      // Pink heart on front face
+      '<path fill="#FF6699" d="M24,20 C22,18 19,18 18,20 C17,22 18,24 24,30 C30,24 31,22 30,20 C29,18 26,18 24,20 Z"/>' +
+      // Heart highlight
+      '<path fill="#FF99BB" d="M20,20 C19,19 18,19 18,20 C18,21 19,22 20,21 Z"/>' +
+      // Edge highlights
+      '<line stroke="#FFCC99" stroke-width="0.5" x1="24" y1="4" x2="44" y2="14"/>' +
+      '<line stroke="#FFCC99" stroke-width="0.5" x1="24" y1="4" x2="4" y2="14"/>' +
       '</svg>';
 
     trigger.appendChild(cube);
